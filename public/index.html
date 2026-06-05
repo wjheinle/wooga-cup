@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🏆 The Wooga Cup 2025</title>
+  <title>🏆 The Wooga Cup 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rye&family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --gold:    #C9A84C;
-      --gold2:   #F0D080;
-      --dark:    #0E1A0F;
-      --green:   #1B3A1F;
-      --green2:  #2A5930;
-      --cream:   #F5EED8;
-      --rust:    #8B3A1A;
-      --sky:     #4A7FA5;
-      --red:     #C0392B;
-      --text:    #F5EED8;
-      --muted:   #9DB49E;
+      --gold:   #C9A84C;
+      --gold2:  #F0D080;
+      --dark:   #0E1A0F;
+      --green:  #1B3A1F;
+      --green2: #2A5930;
+      --cream:  #F5EED8;
+      --rust:   #8B3A1A;
+      --sky:    #4A7FA5;
+      --red:    #C0392B;
+      --text:   #F5EED8;
+      --muted:  #9DB49E;
+      --friday-accent: #7B68EE;
+      --saturday-accent: #C9A84C;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       background: var(--dark);
       color: var(--text);
@@ -30,15 +30,13 @@
       min-height: 100vh;
       background-image:
         radial-gradient(ellipse at 20% 10%, rgba(42,89,48,0.4) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 90%, rgba(139,58,26,0.2) 0%, transparent 50%),
-        url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q15 0 30 30 Q45 60 60 30' stroke='%23ffffff06' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+        radial-gradient(ellipse at 80% 90%, rgba(139,58,26,0.2) 0%, transparent 50%);
     }
 
-    /* ─── HEADER ─── */
+    /* HEADER */
     header {
       text-align: center;
-      padding: 2rem 1rem 1rem;
-      position: relative;
+      padding: 1.8rem 1rem 1rem;
       border-bottom: 2px solid var(--gold);
     }
     .header-badge {
@@ -48,566 +46,424 @@
       font-family: 'Bebas Neue', sans-serif;
       font-size: 0.75rem;
       letter-spacing: 0.2em;
-      padding: 0.25rem 1rem;
-      margin-bottom: 0.5rem;
+      padding: 0.2rem 1rem;
+      margin-bottom: 0.4rem;
     }
     h1 {
       font-family: 'Rye', serif;
-      font-size: clamp(2rem, 8vw, 4.5rem);
+      font-size: clamp(2rem, 8vw, 4rem);
       color: var(--gold);
       text-shadow: 0 2px 20px rgba(201,168,76,0.4), 3px 3px 0 rgba(0,0,0,0.5);
       line-height: 1;
-      letter-spacing: 0.02em;
     }
     .subtitle {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(0.9rem, 3vw, 1.4rem);
+      font-size: clamp(0.85rem, 3vw, 1.3rem);
       letter-spacing: 0.25em;
       color: var(--muted);
-      margin-top: 0.4rem;
+      margin-top: 0.3rem;
     }
-    .ooga-chaka {
+    .ooga { font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--rust); margin-top: 0.2rem; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+
+    /* ROUND BADGE */
+    .round-pills {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 0.8rem 0 0;
+      flex-wrap: wrap;
+    }
+    .round-pill {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 0.8rem;
-      letter-spacing: 0.3em;
-      color: var(--rust);
-      margin-top: 0.25rem;
-      animation: pulse 2s ease-in-out infinite;
+      letter-spacing: 0.15em;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      border: 1px solid;
     }
-    @keyframes pulse { 0%,100%{opacity:0.6} 50%{opacity:1} }
+    .round-pill.friday   { border-color: var(--friday-accent);   color: var(--friday-accent); }
+    .round-pill.saturday { border-color: var(--saturday-accent); color: var(--saturday-accent); }
 
-    /* ─── NAV TABS ─── */
+    /* NAV */
     nav {
       display: flex;
       justify-content: center;
       gap: 0;
-      margin: 1.5rem 1rem 0;
+      margin: 1.2rem 1rem 0;
       border-bottom: 2px solid var(--green2);
       flex-wrap: wrap;
     }
     nav button {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.15em;
+      font-size: 1.05rem;
+      letter-spacing: 0.12em;
       background: none;
       border: none;
       color: var(--muted);
-      padding: 0.6rem 1.4rem;
+      padding: 0.55rem 1.2rem;
       cursor: pointer;
       border-bottom: 3px solid transparent;
       margin-bottom: -2px;
       transition: all 0.2s;
     }
     nav button:hover { color: var(--gold2); }
-    nav button.active {
-      color: var(--gold);
-      border-bottom-color: var(--gold);
-    }
+    nav button.active { color: var(--gold); border-bottom-color: var(--gold); }
 
-    /* ─── MAIN CONTENT ─── */
-    main { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
-
+    main { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1rem 5rem; }
     .section { display: none; }
     .section.active { display: block; }
 
-    /* ─── LEADERBOARD ─── */
-    .lb-header {
+    /* ── LEADERBOARD ── */
+    .lb-controls {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
-    .lb-header h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-    }
-    .last-updated {
-      font-size: 0.8rem;
-      color: var(--muted);
-      font-style: italic;
-    }
+    .lb-controls h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.1em; color: var(--gold); }
+    .last-updated { font-size: 0.8rem; color: var(--muted); font-style: italic; }
 
-    .leaderboard { width: 100%; border-collapse: collapse; }
-    .leaderboard thead tr {
-      background: var(--green);
-      border-bottom: 2px solid var(--gold);
-    }
+    table.leaderboard { width: 100%; border-collapse: collapse; }
+    .leaderboard thead tr { background: var(--green); border-bottom: 2px solid var(--gold); }
     .leaderboard th {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      padding: 0.6rem 0.8rem;
-      text-align: center;
-      color: var(--gold);
+      font-family: 'Bebas Neue', sans-serif; font-size: 0.85rem; letter-spacing: 0.08em;
+      padding: 0.55rem 0.6rem; text-align: center; color: var(--gold);
     }
-    .leaderboard th:first-child { text-align: left; }
-    .leaderboard tbody tr {
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      transition: background 0.15s;
-    }
+    .leaderboard th:nth-child(2) { text-align: left; }
+    .leaderboard tbody tr { border-bottom: 1px solid rgba(255,255,255,0.06); transition: background 0.15s; }
     .leaderboard tbody tr:hover { background: rgba(255,255,255,0.04); }
-    .leaderboard tbody tr.newbie { opacity: 0.7; }
-    .leaderboard td {
-      padding: 0.7rem 0.8rem;
-      text-align: center;
-      font-size: 1rem;
-    }
-    .leaderboard td:first-child { text-align: left; }
+    .leaderboard tbody tr.newbie { opacity: 0.65; }
+    .leaderboard td { padding: 0.65rem 0.6rem; text-align: center; font-size: 0.95rem; }
+    .leaderboard td:nth-child(2) { text-align: left; }
 
     .rank { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: var(--muted); }
     .rank.gold   { color: #FFD700; }
     .rank.silver { color: #C0C0C0; }
     .rank.bronze { color: #CD7F32; }
 
-    .player-name { font-weight: 600; font-size: 1.05rem; }
-    .player-name .alias {
-      display: block;
-      font-size: 0.75rem;
-      font-style: italic;
-      color: var(--muted);
-      font-weight: 400;
-    }
+    .player-name { font-weight: 600; font-size: 1rem; }
     .newbie-tag {
-      font-size: 0.65rem;
-      background: var(--rust);
-      color: white;
-      padding: 0.1rem 0.4rem;
-      border-radius: 3px;
-      letter-spacing: 0.1em;
-      font-family: 'Bebas Neue', sans-serif;
-      vertical-align: middle;
-      margin-left: 0.4rem;
+      font-size: 0.6rem; background: var(--rust); color: white;
+      padding: 0.1rem 0.35rem; border-radius: 3px; letter-spacing: 0.1em;
+      font-family: 'Bebas Neue', sans-serif; vertical-align: middle; margin-left: 0.3rem;
     }
+    .pts-big { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; }
+    .pts-big.pos { color: #6FCF97; }
+    .pts-big.neg { color: var(--red); }
+    .pts-big.zero { color: var(--muted); }
 
-    .pts { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; }
-    .pts.positive { color: #6FCF97; }
-    .pts.negative { color: var(--red); }
-    .pts.zero     { color: var(--muted); }
+    .pts-sub { font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; }
+    .pts-sub.pos { color: #6FCF97; }
+    .pts-sub.neg { color: var(--red); }
+    .pts-sub.zero { color: var(--muted); }
+    .pts-sub.empty { color: rgba(255,255,255,0.2); }
 
-    .holes-played { font-size: 0.85rem; color: var(--muted); }
     .thru { font-size: 0.8rem; color: var(--muted); font-style: italic; }
 
-    /* hole mini dots */
-    .hole-dots { display: flex; gap: 2px; flex-wrap: wrap; max-width: 180px; }
-    .hole-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--green2);
-      position: relative;
-    }
-    .hole-dot.eagle   { background: #F0D080; }
-    .hole-dot.birdie  { background: #6FCF97; }
-    .hole-dot.par     { background: var(--sky); }
-    .hole-dot.bogey   { background: var(--muted); }
-    .hole-dot.double  { background: var(--red); }
+    .hole-dots { display: flex; gap: 2px; flex-wrap: wrap; max-width: 200px; }
+    .hole-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green2); }
+    .hole-dot.eagle  { background: #F0D080; }
+    .hole-dot.birdie { background: #6FCF97; }
+    .hole-dot.par    { background: var(--sky); }
+    .hole-dot.bogey  { background: var(--muted); }
+    .hole-dot.dbl    { background: var(--red); }
+    .hole-dot.fri    { box-shadow: 0 0 0 1px var(--friday-accent); }
 
-    /* ─── SCORECARD ─── */
-    .player-select-bar {
+    /* divider between rounds in dot row */
+    .dot-divider { width: 1px; height: 9px; background: rgba(255,255,255,0.2); margin: 0 2px; }
+
+    /* ── SCORECARD ── */
+    .round-tabs {
       display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
+      gap: 0;
+      margin-bottom: 1.2rem;
+      border-bottom: 2px solid var(--green2);
     }
-    .player-btn {
+    .round-tab {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1rem;
-      letter-spacing: 0.1em;
-      background: var(--green);
-      border: 1px solid var(--green2);
-      color: var(--text);
-      padding: 0.4rem 1rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      background: none;
+      border: none;
+      color: var(--muted);
+      padding: 0.5rem 1.4rem;
       cursor: pointer;
-      border-radius: 4px;
-      transition: all 0.15s;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+    }
+    .round-tab:hover { color: var(--text); }
+    .round-tab.active.fri-tab { color: var(--friday-accent); border-bottom-color: var(--friday-accent); }
+    .round-tab.active.sat-tab { color: var(--saturday-accent); border-bottom-color: var(--saturday-accent); }
+
+    .player-select-bar { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+    .player-btn {
+      font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; letter-spacing: 0.08em;
+      background: var(--green); border: 1px solid var(--green2); color: var(--text);
+      padding: 0.35rem 0.9rem; cursor: pointer; border-radius: 4px; transition: all 0.15s;
     }
     .player-btn:hover { border-color: var(--gold); color: var(--gold); }
-    .player-btn.active {
-      background: var(--gold);
-      color: var(--dark);
-      border-color: var(--gold);
-    }
+    .player-btn.active { background: var(--gold); color: var(--dark); border-color: var(--gold); }
 
     .scorecard-wrap { overflow-x: auto; }
-    table.scorecard {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 700px;
-    }
+    table.scorecard { width: 100%; border-collapse: collapse; min-width: 650px; }
     .scorecard th, .scorecard td {
-      padding: 0.45rem 0.5rem;
-      text-align: center;
-      font-size: 0.9rem;
-      border: 1px solid rgba(255,255,255,0.08);
+      padding: 0.4rem 0.45rem; text-align: center; font-size: 0.88rem;
+      border: 1px solid rgba(255,255,255,0.07);
     }
-    .scorecard thead tr:first-child {
-      background: var(--green);
-    }
+    .scorecard thead tr:first-child { background: var(--green); }
     .scorecard thead tr:first-child th {
-      font-family: 'Bebas Neue', sans-serif;
-      letter-spacing: 0.08em;
-      color: var(--gold);
-      font-size: 0.85rem;
+      font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.07em; color: var(--gold); font-size: 0.82rem;
     }
     .scorecard .row-label {
-      text-align: left;
-      font-family: 'Bebas Neue', sans-serif;
-      letter-spacing: 0.08em;
-      font-size: 0.85rem;
-      color: var(--muted);
-      background: rgba(0,0,0,0.2);
-      white-space: nowrap;
+      text-align: left; font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.07em;
+      font-size: 0.8rem; color: var(--muted); background: rgba(0,0,0,0.2); white-space: nowrap;
     }
-    .scorecard .subtotal {
-      background: var(--green);
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1rem;
-      color: var(--gold);
-    }
+    .scorecard .subtotal { background: var(--green); font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; color: var(--gold); }
     .scorecard input[type=number] {
-      width: 3rem;
-      background: var(--dark);
-      border: 1px solid var(--green2);
-      color: var(--text);
-      text-align: center;
-      font-family: 'Crimson Pro', serif;
-      font-size: 1rem;
-      padding: 0.2rem;
-      border-radius: 3px;
-      -moz-appearance: textfield;
+      width: 2.8rem; background: var(--dark); border: 1px solid var(--green2);
+      color: var(--text); text-align: center; font-family: 'Crimson Pro', serif;
+      font-size: 0.95rem; padding: 0.15rem; border-radius: 3px; -moz-appearance: textfield;
     }
     .scorecard input[type=number]::-webkit-inner-spin-button { display: none; }
-    .scorecard input[type=number]:focus {
-      outline: none;
-      border-color: var(--gold);
-      background: var(--green);
-    }
-    .scorecard .pts-cell {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1rem;
-    }
-    .pts-cell.eagle-plus { color: #F0D080; }
-    .pts-cell.birdie-plus { color: #6FCF97; }
-    .pts-cell.par-plus { color: var(--sky); }
-    .pts-cell.bogey-zero { color: var(--muted); }
-    .pts-cell.double-minus { color: var(--red); }
-    .pts-cell.empty { color: rgba(255,255,255,0.15); }
+    .scorecard input[type=number]:focus { outline: none; border-color: var(--gold); background: var(--green); }
+    .pts-cell { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; }
+    .pts-cell.eagle-c  { color: #F0D080; }
+    .pts-cell.birdie-c { color: #6FCF97; }
+    .pts-cell.par-c    { color: var(--sky); }
+    .pts-cell.bogey-c  { color: var(--muted); }
+    .pts-cell.dbl-c    { color: var(--red); }
+    .pts-cell.empty-c  { color: rgba(255,255,255,0.15); }
 
     .save-btn {
       margin-top: 1rem;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.2rem;
-      letter-spacing: 0.15em;
-      background: var(--gold);
-      color: var(--dark);
-      border: none;
-      padding: 0.7rem 2rem;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: all 0.2s;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.12em;
+      background: var(--gold); color: var(--dark); border: none;
+      padding: 0.65rem 1.8rem; cursor: pointer; border-radius: 4px; transition: all 0.2s;
     }
     .save-btn:hover { background: var(--gold2); transform: translateY(-1px); }
     .save-status { margin-left: 1rem; font-style: italic; color: var(--muted); font-size: 0.9rem; }
 
-    /* ─── RULES / INFO ─── */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
+    /* ── RULES ── */
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
     .info-card {
-      background: var(--green);
-      border: 1px solid var(--green2);
-      border-left: 3px solid var(--gold);
-      padding: 1.2rem;
-      border-radius: 4px;
+      background: var(--green); border: 1px solid var(--green2);
+      border-left: 3px solid var(--gold); padding: 1.1rem; border-radius: 4px;
     }
-    .info-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.2rem;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      margin-bottom: 0.8rem;
-    }
-    .points-table { width: 100%; font-size: 0.95rem; }
-    .points-table td { padding: 0.3rem 0; }
-    .points-table td:last-child {
-      text-align: right;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.1rem;
-    }
-    .pts-badge {
-      display: inline-block;
-      padding: 0.1rem 0.5rem;
-      border-radius: 3px;
-      font-size: 1rem;
-    }
-    .pts-badge.pos { background: rgba(111,207,151,0.2); color: #6FCF97; }
-    .pts-badge.neg { background: rgba(192,57,43,0.2); color: var(--red); }
-    .pts-badge.zero { background: rgba(74,127,165,0.2); color: var(--sky); }
+    .info-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.7rem; }
+    .points-table { width: 100%; font-size: 0.9rem; }
+    .points-table td { padding: 0.25rem 0; }
+    .points-table td:last-child { text-align: right; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; }
+    .pts-badge { display: inline-block; padding: 0.1rem 0.45rem; border-radius: 3px; font-size: 0.95rem; }
+    .pts-badge.pos  { background: rgba(111,207,151,0.2); color: #6FCF97; }
+    .pts-badge.neg  { background: rgba(192,57,43,0.2);   color: var(--red); }
+    .pts-badge.zero { background: rgba(74,127,165,0.2);  color: var(--sky); }
 
-    /* ─── SETTINGS ─── */
-    .settings-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
+    /* ── SETTINGS ── */
+    .settings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+    .settings-card { background: var(--green); border: 1px solid var(--green2); padding: 1.1rem; border-radius: 4px; }
+    .settings-card h3 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.8rem; font-size: 1.1rem; }
+    .field-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .field-row label { flex: 1; font-size: 0.9rem; color: var(--cream); }
+    .field-row input[type=number] {
+      width: 75px; background: var(--dark); border: 1px solid var(--green2);
+      color: var(--text); padding: 0.28rem 0.45rem; font-family: 'Crimson Pro', serif;
+      font-size: 0.9rem; border-radius: 3px; -moz-appearance: textfield;
     }
-    .settings-card {
-      background: var(--green);
-      border: 1px solid var(--green2);
-      padding: 1.2rem;
-      border-radius: 4px;
-    }
-    .settings-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-    }
-    .field-row {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.6rem;
-    }
-    .field-row label {
-      flex: 1;
-      font-size: 0.95rem;
-      color: var(--cream);
-    }
-    .field-row input[type=number],
-    .field-row select {
-      width: 80px;
-      background: var(--dark);
-      border: 1px solid var(--green2);
-      color: var(--text);
-      padding: 0.3rem 0.5rem;
-      font-family: 'Crimson Pro', serif;
-      font-size: 0.95rem;
-      border-radius: 3px;
-      -moz-appearance: textfield;
-    }
-    .field-row input:focus, .field-row select:focus {
-      outline: none;
-      border-color: var(--gold);
-    }
+    .field-row input:focus { outline: none; border-color: var(--gold); }
     .update-btn {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      background: var(--green2);
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      padding: 0.3rem 0.8rem;
-      cursor: pointer;
-      border-radius: 3px;
-      transition: all 0.15s;
+      font-family: 'Bebas Neue', sans-serif; font-size: 0.85rem; letter-spacing: 0.08em;
+      background: var(--green2); border: 1px solid var(--gold); color: var(--gold);
+      padding: 0.28rem 0.7rem; cursor: pointer; border-radius: 3px; transition: all 0.15s;
     }
     .update-btn:hover { background: var(--gold); color: var(--dark); }
 
-    .danger-zone {
+    /* RESET SECTION */
+    .reset-section {
       margin-top: 2rem;
-      padding: 1rem;
-      border: 1px solid var(--rust);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 700px;
+    }
+    .reset-card {
+      padding: 1.1rem;
       border-radius: 4px;
-      background: rgba(139,58,26,0.1);
+      border: 1px solid;
     }
-    .danger-zone h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      color: var(--rust);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-    }
+    .reset-card.fri-card { border-color: var(--friday-accent); background: rgba(123,104,238,0.08); }
+    .reset-card.sat-card { border-color: var(--saturday-accent); background: rgba(201,168,76,0.08); }
+    .reset-card.all-card { border-color: var(--rust); background: rgba(139,58,26,0.1); }
+    .reset-card h3 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.1em; margin-bottom: 0.4rem; font-size: 1.05rem; }
+    .reset-card.fri-card h3 { color: var(--friday-accent); }
+    .reset-card.sat-card h3 { color: var(--saturday-accent); }
+    .reset-card.all-card h3 { color: var(--rust); }
+    .reset-card p { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.7rem; }
     .reset-btn {
-      font-family: 'Bebas Neue', sans-serif;
-      letter-spacing: 0.1em;
-      background: var(--rust);
-      border: none;
-      color: white;
-      padding: 0.5rem 1.2rem;
-      cursor: pointer;
-      border-radius: 4px;
-      font-size: 1rem;
-      transition: all 0.2s;
+      font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.1em;
+      border: none; color: white; padding: 0.45rem 1.1rem;
+      cursor: pointer; border-radius: 4px; font-size: 0.95rem; transition: all 0.2s;
     }
-    .reset-btn:hover { opacity: 0.85; }
+    .reset-btn.fri-btn { background: var(--friday-accent); }
+    .reset-btn.sat-btn { background: var(--saturday-accent); color: var(--dark); }
+    .reset-btn.all-btn { background: var(--rust); }
+    .reset-btn:hover { opacity: 0.82; }
 
-    /* ─── HORSE SILHOUETTE ─── */
-    .horse-deco {
-      position: fixed;
-      bottom: 0;
-      right: 1rem;
-      opacity: 0.04;
-      pointer-events: none;
-      font-size: 10rem;
-      line-height: 1;
-    }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 600px) {
-      .leaderboard th, .leaderboard td { padding: 0.5rem 0.4rem; font-size: 0.85rem; }
-      .hole-dots { display: none; }
-      nav button { padding: 0.5rem 0.8rem; font-size: 0.95rem; }
-    }
-
-    /* ─── TOAST ─── */
+    /* TOAST */
     #toast {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
+      position: fixed; bottom: 2rem; left: 50%;
       transform: translateX(-50%) translateY(3rem);
-      background: var(--gold);
-      color: var(--dark);
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.1em;
-      padding: 0.6rem 1.8rem;
-      border-radius: 4px;
-      opacity: 0;
-      transition: all 0.3s;
-      z-index: 1000;
-      pointer-events: none;
+      background: var(--gold); color: var(--dark);
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em;
+      padding: 0.55rem 1.6rem; border-radius: 4px;
+      opacity: 0; transition: all 0.3s; z-index: 1000; pointer-events: none;
     }
-    #toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    /* loading state */
-    .loading-overlay {
-      text-align: center;
-      padding: 3rem;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
-      letter-spacing: 0.2em;
-      color: var(--muted);
-    }
-    .spinner {
-      display: inline-block;
-      width: 1.5rem; height: 1.5rem;
-      border: 2px solid var(--muted);
-      border-top-color: var(--gold);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      vertical-align: middle;
-      margin-right: 0.5rem;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-msg { text-align: center; padding: 3rem; font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.2em; color: var(--muted); }
 
-    .eligible-crown { font-size: 0.7rem; margin-left: 0.2rem; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 1rem; }
+
+    @media (max-width: 600px) {
+      .leaderboard th, .leaderboard td { padding: 0.4rem 0.3rem; font-size: 0.8rem; }
+      .hole-dots { display: none; }
+      nav button { padding: 0.45rem 0.7rem; font-size: 0.9rem; }
+      .leaderboard td:nth-child(5), .leaderboard th:nth-child(5) { display: none; }
+    }
   </style>
 </head>
 <body>
 
-<div class="horse-deco">🐴</div>
-
 <header>
   <div class="header-badge">Wild Horse Golf Club · Gothenburg, NE</div>
   <h1>The Wooga Cup</h1>
-  <div class="subtitle">Modified Stableford Championship · 2025</div>
-  <div class="ooga-chaka">♪ OOGA CHAKA OOGA OOGA ♪</div>
+  <div class="subtitle">27-Hole Modified Stableford · 2026</div>
+  <div class="round-pills">
+    <span class="round-pill friday">🌙 Friday: Back 9 (Holes 10–18)</span>
+    <span class="round-pill saturday">☀️ Saturday: Full 18 (Holes 1–18)</span>
+  </div>
+  <div class="ooga">♪ OOGA CHAKA OOGA OOGA ♪</div>
 </header>
 
 <nav>
   <button class="active" onclick="showTab('leaderboard')">🏆 Leaderboard</button>
-  <button onclick="showTab('scorecard')">⛳ Scorecard</button>
-  <button onclick="showTab('rules')">📋 Rules & Info</button>
+  <button onclick="showTab('friday')">🌙 Friday</button>
+  <button onclick="showTab('saturday')">☀️ Saturday</button>
+  <button onclick="showTab('rules')">📋 Rules</button>
   <button onclick="showTab('settings')">⚙️ Settings</button>
 </nav>
 
 <main>
 
-  <!-- ─── LEADERBOARD ─── -->
+  <!-- LEADERBOARD -->
   <section id="leaderboard" class="section active">
-    <div class="lb-header">
-      <h2>🏆 Cup Standings</h2>
+    <div class="lb-controls">
+      <h2>🏆 Cup Standings — 27 Holes</h2>
       <div class="last-updated" id="last-updated">Loading...</div>
     </div>
-    <div id="lb-content"><div class="loading-overlay"><span class="spinner"></span>Loading scores...</div></div>
+    <div id="lb-content"><div class="loading-msg">Loading scores...</div></div>
   </section>
 
-  <!-- ─── SCORECARD ─── -->
-  <section id="scorecard" class="section">
-    <div class="player-select-bar" id="player-btns"></div>
-    <div class="scorecard-wrap" id="scorecard-content"></div>
+  <!-- FRIDAY SCORECARD -->
+  <section id="friday" class="section">
+    <div class="section-title" style="color:var(--friday-accent)">🌙 Friday — Back 9 (Holes 10–18)</div>
+    <div class="player-select-bar" id="fri-player-btns"></div>
+    <div class="scorecard-wrap" id="fri-scorecard"></div>
     <div style="margin-top:1rem">
-      <button class="save-btn" onclick="saveScores()">💾 Save Scores</button>
-      <span class="save-status" id="save-status"></span>
+      <button class="save-btn" style="background:var(--friday-accent)" onclick="saveScores('friday')">💾 Save Friday Scores</button>
+      <span class="save-status" id="fri-save-status"></span>
     </div>
   </section>
 
-  <!-- ─── RULES ─── -->
+  <!-- SATURDAY SCORECARD -->
+  <section id="saturday" class="section">
+    <div class="section-title" style="color:var(--saturday-accent)">☀️ Saturday — Full 18 (Holes 1–18)</div>
+    <div class="player-select-bar" id="sat-player-btns"></div>
+    <div class="scorecard-wrap" id="sat-scorecard"></div>
+    <div style="margin-top:1rem">
+      <button class="save-btn" onclick="saveScores('saturday')">💾 Save Saturday Scores</button>
+      <span class="save-status" id="sat-save-status"></span>
+    </div>
+  </section>
+
+  <!-- RULES -->
   <section id="rules" class="section">
     <div class="info-grid">
       <div class="info-card">
         <h3>🎯 Stableford Points</h3>
         <table class="points-table">
-          <tr><td>Double Eagle (2 under)</td><td><span class="pts-badge pos">+16</span></td></tr>
+          <tr><td>Double Eagle</td><td><span class="pts-badge pos">+16</span></td></tr>
           <tr><td>Eagle (2 under)</td><td><span class="pts-badge pos">+9</span></td></tr>
           <tr><td>Birdie (1 under)</td><td><span class="pts-badge pos">+4</span></td></tr>
           <tr><td>Par</td><td><span class="pts-badge pos">+1</span></td></tr>
           <tr><td>Bogey (1 over)</td><td><span class="pts-badge zero">0</span></td></tr>
-          <tr><td>Double Bogey or worse</td><td><span class="pts-badge neg">-1</span></td></tr>
+          <tr><td>Double Bogey+</td><td><span class="pts-badge neg">-1</span></td></tr>
         </table>
       </div>
       <div class="info-card">
+        <h3>📅 Tournament Format</h3>
+        <p style="font-size:0.9rem;line-height:1.7;color:var(--cream)">
+          <span style="color:var(--friday-accent)">🌙 Friday Afternoon</span><br>
+          Back 9 only · Holes 10–18<br><br>
+          <span style="color:var(--saturday-accent)">☀️ Saturday Morning</span><br>
+          Full 18 · Holes 1–18<br><br>
+          <strong>Total: 27 holes</strong><br>
+          Cumulative Stableford points across both rounds determine the Wooga Cup champion.
+        </p>
+      </div>
+      <div class="info-card">
         <h3>🐴 Course Info</h3>
-        <p style="font-size:0.95rem; line-height:1.6; color:var(--cream)">
+        <p style="font-size:0.9rem;line-height:1.7;color:var(--cream)">
           Wild Horse Golf Club<br>
           Gothenburg, Nebraska<br><br>
-          Par 72 · 18 Holes<br>
-          Gold Tees: 6848 yards<br><br>
-          Handicap strokes are applied per the USGA allocation based on Wooga Handicap index.
+          Par 72 · Gold Tees: 6848 yards<br><br>
+          Handicap strokes applied per USGA hole allocation using Wooga Handicap index.
         </p>
       </div>
       <div class="info-card">
         <h3>🏆 Cup Eligibility</h3>
-        <p style="font-size:0.95rem; line-height:1.6; color:var(--cream)">
-          8 eligible players compete for the <strong>Wooga Cup</strong>.<br><br>
-          2 newbies (Ben & Jason) are <em>not eligible</em> for the Cup but scores are tracked and handicaps will be assigned based on their performance.
+        <p style="font-size:0.9rem;line-height:1.7;color:var(--cream)">
+          <strong>8 eligible players</strong> compete for the Wooga Cup 👑<br><br>
+          <strong style="color:var(--rust)">2 newbies</strong> (Ben & Jason) play but are not eligible. Their handicaps will be assigned after the tournament.
         </p>
       </div>
       <div class="info-card">
         <h3>📻 Theme Song</h3>
-        <p style="font-size:0.95rem; line-height:1.6; color:var(--cream)">
+        <p style="font-size:0.9rem;line-height:1.7;color:var(--cream)">
           <strong style="color:var(--gold)">"Hooked on a Feeling"</strong><br>
           by Blue Swede<br><br>
           <em style="color:var(--muted)">♪ Ooga chaka ooga ooga<br>Ooga chaka ooga ooga ♪</em><br><br>
-          Cranked at the first tee by Joe, as is tradition.
+          Cranked at the first tee by Joe. Every year. Non-negotiable.
         </p>
-      </div>
-    </div>
-
-    <div class="info-card" style="margin-top:0">
-      <h3>📊 Hole-by-Hole Reference (Gold Tees)</h3>
-      <div style="overflow-x:auto">
-        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;min-width:600px">
-          <thead>
-            <tr style="background:var(--green);border-bottom:1px solid var(--gold)">
-              <th style="padding:0.4rem;color:var(--gold);font-family:'Bebas Neue',sans-serif;letter-spacing:0.08em">Hole</th>
-              <th colspan="9" style="padding:0.4rem;color:var(--gold);font-family:'Bebas Neue',sans-serif">Front 9</th>
-              <th style="padding:0.4rem;color:var(--gold);font-family:'Bebas Neue',sans-serif">OUT</th>
-              <th colspan="9" style="padding:0.4rem;color:var(--gold);font-family:'Bebas Neue',sans-serif">Back 9</th>
-              <th style="padding:0.4rem;color:var(--gold);font-family:'Bebas Neue',sans-serif">IN</th>
-              <th style="padding:0.4rem;color:var(--gold);font-family:'Bebas Neue',sans-serif">TOT</th>
-            </tr>
-          </thead>
-          <tbody id="course-ref-body"></tbody>
-        </table>
       </div>
     </div>
   </section>
 
-  <!-- ─── SETTINGS ─── -->
+  <!-- SETTINGS -->
   <section id="settings" class="section">
+    <div class="section-title">Handicaps</div>
     <div class="settings-grid" id="settings-grid"></div>
-    <div class="danger-zone" style="max-width:500px;margin-top:2rem">
-      <h3>⚠️ Danger Zone</h3>
-      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:0.8rem">Reset all entered scores. Cannot be undone.</p>
-      <button class="reset-btn" onclick="resetScores()">🗑️ Reset All Scores</button>
+
+    <div class="section-title" style="margin-top:2rem">🔄 Reset Scores</div>
+    <div class="reset-section">
+      <div class="reset-card fri-card">
+        <h3>🌙 Friday Round</h3>
+        <p>Clear all Friday back-9 scores only.</p>
+        <button class="reset-btn fri-btn" onclick="resetScores('friday')">Reset Friday</button>
+      </div>
+      <div class="reset-card sat-card">
+        <h3>☀️ Saturday Round</h3>
+        <p>Clear all Saturday scores only.</p>
+        <button class="reset-btn sat-btn" onclick="resetScores('saturday')">Reset Saturday</button>
+      </div>
+      <div class="reset-card all-card">
+        <h3>⚠️ All Scores</h3>
+        <p>Reset the entire tournament. Cannot be undone.</p>
+        <button class="reset-btn all-btn" onclick="resetScores('all')">Reset Everything</button>
+      </div>
     </div>
   </section>
 
@@ -616,67 +472,57 @@
 <div id="toast"></div>
 
 <script>
-// ═══════════════════════════════════════════════════
-// COURSE DATA (Wild Horse Golf Club, Gold Tees)
-// ═══════════════════════════════════════════════════
-const COURSE = {
-  name: 'Wild Horse Golf Club',
-  par: [4,4,5,3,4,5,4,4,3, 4,3,4,4,5,4,4,5,4],
-  yards_gold: [363,431,537,171,367,548,364,451,155, 408,126,442,208,524,342,445,548,418],
-  handicap: [11,3,15,9,13,5,7,1,17, 10,18,4,6,16,12,2,14,8]
-};
+// ══════════════════════════════════════════
+// COURSE DATA — Wild Horse GC, Gold Tees
+// ══════════════════════════════════════════
+const PAR = [4,4,5,3,4,5,4,4,3, 4,3,4,4,5,4,4,5,4];
+const HCP_ALLOC = [11,3,15,9,13,5,7,1,17, 10,18,4,6,16,12,2,14,8];
+const YARDS = [363,431,537,171,367,548,364,451,155, 408,126,442,208,524,342,445,548,418];
 
-const STABLEFORD = {
-  doubleEagle: 16,
-  eagle: 9,
-  birdie: 4,
-  par: 1,
-  bogey: 0,
-  doublePlus: -1
-};
+const FRIDAY_HOLES   = [10,11,12,13,14,15,16,17,18];
+const SATURDAY_HOLES = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
+const FRONT = [1,2,3,4,5,6,7,8,9];
+const BACK  = [10,11,12,13,14,15,16,17,18];
 
-// ═══════════════════════════════════════════════════
+// ══════════════════════════════════════════
 // STATE
-// ═══════════════════════════════════════════════════
+// ══════════════════════════════════════════
 let appData = null;
-let activePlayerId = null;
-let pendingScores = {}; // playerId -> { hole: strokes }
+let activePlayers = { friday: null, saturday: null };
+let pending = { friday: {}, saturday: {} };
 
-// ═══════════════════════════════════════════════════
-// UTILITY
-// ═══════════════════════════════════════════════════
-function calcPoints(strokes, par) {
-  if (strokes === null || strokes === undefined || strokes === 0) return null;
-  const diff = strokes - par;
-  if (diff <= -3) return STABLEFORD.doubleEagle;
-  if (diff === -2) return STABLEFORD.eagle;
-  if (diff === -1) return STABLEFORD.birdie;
-  if (diff === 0)  return STABLEFORD.par;
-  if (diff === 1)  return STABLEFORD.bogey;
-  return STABLEFORD.doublePlus;
+// ══════════════════════════════════════════
+// UTILS
+// ══════════════════════════════════════════
+function calcPts(strokes, par) {
+  if (!strokes || strokes <= 0) return null;
+  const d = strokes - par;
+  if (d <= -3) return 16;
+  if (d === -2) return 9;
+  if (d === -1) return 4;
+  if (d === 0)  return 1;
+  if (d === 1)  return 0;
+  return -1;
 }
 
-function getHcpStrokes(handicap, holeHcp, totalHoles = 18) {
+function hcpStrokes(handicap, holeHcp) {
   if (!handicap) return 0;
-  const hcp = Math.min(handicap, 36);
-  const full = Math.floor(hcp / totalHoles);
-  const extra = hcp % totalHoles;
-  return full + (holeHcp <= extra ? 1 : 0);
+  const hcp = Math.min(handicap, 54);
+  return Math.floor(hcp / 18) + (holeHcp <= (hcp % 18) ? 1 : 0);
 }
 
-function ptsClass(pts) {
-  if (pts === null) return 'empty';
-  if (pts >= 9)  return 'eagle-plus';
-  if (pts >= 4)  return 'birdie-plus';
-  if (pts >= 1)  return 'par-plus';
-  if (pts === 0) return 'bogey-zero';
-  return 'double-minus';
+function ptsCls(pts) {
+  if (pts === null) return 'empty-c';
+  if (pts >= 9)  return 'eagle-c';
+  if (pts >= 4)  return 'birdie-c';
+  if (pts >= 1)  return 'par-c';
+  if (pts === 0) return 'bogey-c';
+  return 'dbl-c';
 }
 
-function ptsLabel(pts) {
+function ptsLbl(pts) {
   if (pts === null) return '–';
-  if (pts > 0) return '+' + pts;
-  return String(pts);
+  return pts > 0 ? '+' + pts : String(pts);
 }
 
 function rankMedal(i) {
@@ -693,26 +539,26 @@ function toast(msg) {
   setTimeout(() => t.classList.remove('show'), 2500);
 }
 
-// ═══════════════════════════════════════════════════
-// DATA FETCHING
-// ═══════════════════════════════════════════════════
+// ══════════════════════════════════════════
+// DATA
+// ══════════════════════════════════════════
 async function fetchData() {
   const res = await fetch('/api/data');
   appData = await res.json();
-  // merge pending
-  return appData;
+  if (!appData.scores.friday)   appData.scores.friday = {};
+  if (!appData.scores.saturday) appData.scores.saturday = {};
 }
 
 async function loadAll() {
   await fetchData();
   renderLeaderboard();
-  renderPlayerButtons();
-  renderScorecard(activePlayerId || appData.players[0].id);
+  renderPlayerBtns('friday');
+  renderPlayerBtns('saturday');
+  renderScorecard('friday',   activePlayers.friday   || appData.players[0].id);
+  renderScorecard('saturday', activePlayers.saturday || appData.players[0].id);
   renderSettings();
-  renderCourseRef();
 }
 
-// auto-refresh leaderboard every 30s
 setInterval(async () => {
   if (document.getElementById('leaderboard').classList.contains('active')) {
     await fetchData();
@@ -720,96 +566,98 @@ setInterval(async () => {
   }
 }, 30000);
 
-// ═══════════════════════════════════════════════════
+// ══════════════════════════════════════════
 // LEADERBOARD
-// ═══════════════════════════════════════════════════
-function computePlayerTotals(data) {
-  return data.players.map(player => {
-    const scores = data.scores[player.id] || {};
-    let totalPts = 0;
-    let holesPlayed = 0;
-    const holeResults = [];
+// ══════════════════════════════════════════
+function playerTotals() {
+  return appData.players.map(p => {
+    const fri = appData.scores.friday[p.id]   || {};
+    const sat = appData.scores.saturday[p.id] || {};
 
-    for (let h = 1; h <= 18; h++) {
-      const strokes = scores[h];
-      if (strokes !== undefined && strokes > 0) {
-        const par = COURSE.par[h-1];
-        const hcpStrokes = getHcpStrokes(player.handicap, COURSE.handicap[h-1]);
-        const adjPar = par + hcpStrokes;
-        const pts = calcPoints(strokes, adjPar);
-        totalPts += pts;
-        holesPlayed++;
-        holeResults.push({ hole: h, strokes, par, hcpStrokes, pts });
+    let friPts = 0, satPts = 0, friHoles = 0, satHoles = 0;
+    const dots = [];
+
+    // Friday holes 10-18
+    FRIDAY_HOLES.forEach(h => {
+      const s = fri[h];
+      if (s && s > 0) {
+        const adj = PAR[h-1] + hcpStrokes(p.handicap, HCP_ALLOC[h-1]);
+        const pts = calcPts(s, adj);
+        friPts += pts; friHoles++;
+        const cls = pts >= 9 ? 'eagle' : pts >= 4 ? 'birdie' : pts >= 1 ? 'par' : pts === 0 ? 'bogey' : 'dbl';
+        dots.push(`<div class="hole-dot ${cls} fri" title="Fri H${h}: ${s} (${pts>0?'+':''}${pts}pts)"></div>`);
       } else {
-        holeResults.push({ hole: h, strokes: null, par: COURSE.par[h-1], pts: null });
+        dots.push(`<div class="hole-dot" title="Fri H${h}: not played"></div>`);
       }
-    }
+    });
 
-    return { ...player, totalPts, holesPlayed, holeResults };
+    dots.push('<div class="dot-divider"></div>');
+
+    // Saturday holes 1-18
+    SATURDAY_HOLES.forEach(h => {
+      const s = sat[h];
+      if (s && s > 0) {
+        const adj = PAR[h-1] + hcpStrokes(p.handicap, HCP_ALLOC[h-1]);
+        const pts = calcPts(s, adj);
+        satPts += pts; satHoles++;
+        const cls = pts >= 9 ? 'eagle' : pts >= 4 ? 'birdie' : pts >= 1 ? 'par' : pts === 0 ? 'bogey' : 'dbl';
+        dots.push(`<div class="hole-dot ${cls}" title="Sat H${h}: ${s} (${pts>0?'+':''}${pts}pts)"></div>`);
+      } else {
+        dots.push(`<div class="hole-dot" title="Sat H${h}: not played"></div>`);
+      }
+    });
+
+    const total = friPts + satPts;
+    const thru = friHoles + satHoles;
+    return { ...p, total, friPts, satPts, friHoles, satHoles, thru, dots };
   });
 }
 
 function renderLeaderboard() {
-  const totals = computePlayerTotals(appData);
-  const eligible = totals.filter(p => p.eligible).sort((a,b) => b.totalPts - a.totalPts);
-  const newbies  = totals.filter(p => !p.eligible).sort((a,b) => b.totalPts - a.totalPts);
+  document.getElementById('last-updated').textContent = 'Updated ' + new Date().toLocaleTimeString();
+  const totals = playerTotals();
+  const eligible = totals.filter(p => p.eligible).sort((a,b) => b.total - a.total);
+  const newbies  = totals.filter(p => !p.eligible).sort((a,b) => b.total - a.total);
 
-  const now = new Date();
-  document.getElementById('last-updated').textContent = 'Updated ' + now.toLocaleTimeString();
+  const ptsFmt = (pts, cls='pts-big') => {
+    const c = pts > 0 ? 'pos' : pts < 0 ? 'neg' : 'zero';
+    return `<span class="${cls} ${c}">${pts > 0 ? '+' : ''}${pts}</span>`;
+  };
 
-  let html = `
-    <table class="leaderboard">
-      <thead>
-        <tr>
-          <th style="width:2.5rem"></th>
-          <th style="text-align:left">Player</th>
-          <th>HCP</th>
-          <th>Pts</th>
-          <th>Thru</th>
-          <th class="hide-mobile">Holes</th>
-        </tr>
-      </thead>
-      <tbody>
-  `;
+  let html = `<table class="leaderboard"><thead><tr>
+    <th></th><th>Player</th><th>HCP</th>
+    <th>🌙 Fri</th><th>☀️ Sat</th><th>Total</th>
+    <th>Thru</th><th>Holes</th>
+  </tr></thead><tbody>`;
 
   eligible.forEach((p, i) => {
-    const ptsCls = p.totalPts > 0 ? 'positive' : p.totalPts < 0 ? 'negative' : 'zero';
-    const thruText = p.holesPlayed === 18 ? 'F' : p.holesPlayed === 0 ? '—' : p.holesPlayed;
-    html += `
-      <tr>
-        <td>${rankMedal(i)}</td>
-        <td>
-          <span class="player-name">${p.name}<span class="eligible-crown">👑</span></span>
-        </td>
-        <td style="color:var(--muted);font-size:0.9rem">${p.handicap ?? '—'}</td>
-        <td><span class="pts ${ptsCls}">${p.totalPts > 0 ? '+' : ''}${p.totalPts}</span></td>
-        <td><span class="thru">${thruText}</span></td>
-        <td class="hide-mobile">
-          <div class="hole-dots">${p.holeResults.map(r => {
-            if (r.pts === null) return '<div class="hole-dot" title="H'+r.hole+': Not played"></div>';
-            const cls = r.pts >= 9 ? 'eagle' : r.pts >= 4 ? 'birdie' : r.pts >= 1 ? 'par' : r.pts === 0 ? 'bogey' : 'double';
-            return `<div class="hole-dot ${cls}" title="H${r.hole}: ${r.strokes} (${r.pts>0?'+':''}${r.pts}pts)"></div>`;
-          }).join('')}</div>
-        </td>
-      </tr>`;
+    const thruTxt = p.thru === 27 ? 'F' : p.thru === 0 ? '—' : p.thru;
+    html += `<tr>
+      <td>${rankMedal(i)}</td>
+      <td><span class="player-name">${p.name} <span style="font-size:0.7rem">👑</span></span></td>
+      <td style="color:var(--muted);font-size:0.85rem">${p.handicap ?? '—'}</td>
+      <td>${p.friHoles > 0 ? ptsFmt(p.friPts, 'pts-sub') : '<span class="pts-sub empty">—</span>'}</td>
+      <td>${p.satHoles > 0 ? ptsFmt(p.satPts, 'pts-sub') : '<span class="pts-sub empty">—</span>'}</td>
+      <td>${ptsFmt(p.total)}</td>
+      <td><span class="thru">${thruTxt}</span></td>
+      <td><div class="hole-dots">${p.dots.join('')}</div></td>
+    </tr>`;
   });
 
-  if (newbies.length > 0) {
-    html += `<tr><td colspan="6" style="padding:0.8rem;font-family:'Bebas Neue',sans-serif;letter-spacing:0.1em;color:var(--rust);font-size:0.85rem;text-align:center;border-top:1px solid var(--rust)">NEWBIES (Not Cup Eligible)</td></tr>`;
+  if (newbies.length) {
+    html += `<tr><td colspan="8" style="padding:0.7rem;font-family:'Bebas Neue',sans-serif;letter-spacing:0.1em;color:var(--rust);font-size:0.8rem;text-align:center;border-top:1px solid var(--rust)">NEWBIES — NOT CUP ELIGIBLE</td></tr>`;
     newbies.forEach(p => {
-      const ptsCls = p.totalPts > 0 ? 'positive' : p.totalPts < 0 ? 'negative' : 'zero';
-      const thruText = p.holesPlayed === 18 ? 'F' : p.holesPlayed === 0 ? '—' : p.holesPlayed;
-      html += `
-        <tr class="newbie">
-          <td><span class="rank" style="color:var(--rust)">N</span></td>
-          <td>
-            <span class="player-name">${p.name}<span class="newbie-tag">NEWBIE</span></span>
-          </td>
-          <td style="color:var(--muted);font-size:0.9rem">${p.handicap ?? 'TBD'}</td>
-          <td><span class="pts ${ptsCls}">${p.totalPts > 0 ? '+' : ''}${p.totalPts}</span></td>
-          <td><span class="thru">${thruText}</span></td>
-          <td></td>
-        </tr>`;
+      const thruTxt = p.thru === 27 ? 'F' : p.thru === 0 ? '—' : p.thru;
+      html += `<tr class="newbie">
+        <td><span class="rank" style="color:var(--rust)">N</span></td>
+        <td><span class="player-name">${p.name}<span class="newbie-tag">NEWBIE</span></span></td>
+        <td style="color:var(--muted);font-size:0.85rem">${p.handicap ?? 'TBD'}</td>
+        <td>${p.friHoles > 0 ? ptsFmt(p.friPts,'pts-sub') : '<span class="pts-sub empty">—</span>'}</td>
+        <td>${p.satHoles > 0 ? ptsFmt(p.satPts,'pts-sub') : '<span class="pts-sub empty">—</span>'}</td>
+        <td>${ptsFmt(p.total)}</td>
+        <td><span class="thru">${thruTxt}</span></td>
+        <td></td>
+      </tr>`;
     });
   }
 
@@ -817,312 +665,264 @@ function renderLeaderboard() {
   document.getElementById('lb-content').innerHTML = html;
 }
 
-// ═══════════════════════════════════════════════════
+// ══════════════════════════════════════════
 // SCORECARD
-// ═══════════════════════════════════════════════════
-function renderPlayerButtons() {
-  const bar = document.getElementById('player-btns');
-  bar.innerHTML = appData.players.map(p =>
-    `<button class="player-btn ${activePlayerId === p.id ? 'active' : ''}"
-       onclick="renderScorecard('${p.id}')">${p.name.split(' ')[0]}${p.eligible ? '' : ' <small style="color:var(--rust)">(N)</small>'}</button>`
+// ══════════════════════════════════════════
+function renderPlayerBtns(round) {
+  const container = document.getElementById(`${round === 'friday' ? 'fri' : 'sat'}-player-btns`);
+  container.innerHTML = appData.players.map(p =>
+    `<button class="player-btn ${activePlayers[round] === p.id ? 'active' : ''}"
+       onclick="renderScorecard('${round}','${p.id}')">${p.name.split(' ')[0]}${!p.eligible ? ' <small style="color:var(--rust)">(N)</small>' : ''}</button>`
   ).join('');
 }
 
-function renderScorecard(playerId) {
-  activePlayerId = playerId;
-  renderPlayerButtons();
+function renderScorecard(round, playerId) {
+  activePlayers[round] = playerId;
+  renderPlayerBtns(round);
 
   const player = appData.players.find(p => p.id === playerId);
-  const scores = { ...(appData.scores[playerId] || {}), ...(pendingScores[playerId] || {}) };
+  const saved  = appData.scores[round][playerId] || {};
+  const pend   = pending[round][playerId] || {};
+  const scores = { ...saved, ...pend };
 
-  const front = [1,2,3,4,5,6,7,8,9];
-  const back  = [10,11,12,13,14,15,16,17,18];
+  const holes = round === 'friday' ? FRIDAY_HOLES : SATURDAY_HOLES;
+  const isFri = round === 'friday';
+  const containerId = isFri ? 'fri-scorecard' : 'sat-scorecard';
+  const accent = isFri ? 'var(--friday-accent)' : 'var(--saturday-accent)';
 
-  function buildHalf(holes) {
-    let ptsTotal = 0;
-    let strokesTotal = 0;
-    let cells = '';
-
-    holes.forEach(h => {
-      const par = COURSE.par[h-1];
-      const hcpStrokes = getHcpStrokes(player.handicap, COURSE.handicap[h-1]);
+  // For Saturday, split into front/back
+  function buildHoles(holeList) {
+    let ptsTotal = 0, strokesTotal = 0, rows = { stroke: '', pts: '', par: '', hcp: '' };
+    holeList.forEach(h => {
+      const par  = PAR[h-1];
+      const hcpS = hcpStrokes(player.handicap, HCP_ALLOC[h-1]);
+      const adjPar = par + hcpS;
       const strokes = scores[h] || '';
-      const adjPar = par + hcpStrokes;
-      const pts = strokes ? calcPoints(parseInt(strokes), adjPar) : null;
+      const pts = strokes ? calcPts(parseInt(strokes), adjPar) : null;
       if (pts !== null) ptsTotal += pts;
       if (strokes) strokesTotal += parseInt(strokes);
 
-      cells += `<td><input type="number" min="1" max="15" value="${strokes}"
-        onchange="updatePending('${playerId}', ${h}, this.value)"
-        oninput="liveUpdateRow('${playerId}', ${h}, this.value)"
-        id="inp-${playerId}-${h}" /></td>`;
+      rows.stroke += `<td><input type="number" min="1" max="15" value="${strokes}"
+        onchange="updatePending('${round}','${playerId}',${h},this.value)"
+        oninput="liveUpdate('${round}','${playerId}',${h},this.value)"
+        id="inp-${round}-${playerId}-${h}" /></td>`;
+      rows.pts += `<td class="pts-cell ${ptsCls(pts)}" id="pts-${round}-${playerId}-${h}">${ptsLbl(pts)}</td>`;
+      rows.par += `<td style="color:var(--muted)">${par}</td>`;
+      rows.hcp += `<td style="color:var(--muted);font-size:0.78rem">${hcpS > 0 ? '+'+hcpS : '—'}</td>`;
     });
-
-    return { cells, ptsTotal, strokesTotal };
+    return { ...rows, ptsTotal, strokesTotal };
   }
 
-  const f = buildHalf(front);
-  const b = buildHalf(back);
+  let tableHTML = '';
 
-  function ptsRow(holes) {
-    return holes.map(h => {
-      const par = COURSE.par[h-1];
-      const hcpStrokes = getHcpStrokes(player.handicap, COURSE.handicap[h-1]);
-      const strokes = scores[h];
-      const adjPar = par + hcpStrokes;
-      const pts = strokes ? calcPoints(parseInt(strokes), adjPar) : null;
-      const cls = ptsClass(pts);
-      return `<td class="pts-cell ${cls}" id="pts-${playerId}-${h}">${ptsLabel(pts)}</td>`;
-    }).join('');
-  }
-
-  function parRow(holes) {
-    return holes.map(h => `<td style="color:var(--muted)">${COURSE.par[h-1]}</td>`).join('');
-  }
-
-  function hcpRow(holes) {
-    return holes.map(h => {
-      const s = getHcpStrokes(player.handicap, COURSE.handicap[h-1]);
-      return `<td style="color:var(--muted);font-size:0.8rem">${s > 0 ? '+'+s : '—'}</td>`;
-    }).join('');
-  }
-
-  const frontPar = front.reduce((s,h) => s + COURSE.par[h-1], 0);
-  const backPar  = back.reduce((s,h)  => s + COURSE.par[h-1], 0);
-
-  const html = `
-    <div style="margin-bottom:0.8rem;font-size:0.95rem;color:var(--muted)">
-      <strong style="color:var(--cream)">${player.name}</strong>
-      &nbsp;·&nbsp; Wooga HCP: <strong style="color:var(--gold)">${player.handicap ?? 'N/A'}</strong>
-      &nbsp;·&nbsp; <span style="color:var(--muted)">Cup: ${player.eligible ? '<span style="color:#6FCF97">Eligible 👑</span>' : '<span style="color:var(--rust)">Newbie</span>'}</span>
-    </div>
-    <table class="scorecard">
-      <thead>
-        <tr>
+  if (isFri) {
+    // Friday: single 9-hole table
+    const d = buildHoles(FRIDAY_HOLES);
+    tableHTML = `
+      <table class="scorecard">
+        <thead><tr>
           <th class="row-label"></th>
-          ${front.map(h=>`<th>${h}</th>`).join('')}
+          ${FRIDAY_HOLES.map(h=>`<th>${h}</th>`).join('')}
+          <th class="subtotal">TOT</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">Par</td>${d.par}<td class="subtotal">${FRIDAY_HOLES.reduce((s,h)=>s+PAR[h-1],0)}</td></tr>
+          <tr><td class="row-label">HCP+</td>${d.hcp}<td class="subtotal">—</td></tr>
+          <tr><td class="row-label">Score</td>${d.stroke}<td class="subtotal" id="sub-s-${round}-${playerId}-tot">${d.strokesTotal || '—'}</td></tr>
+          <tr><td class="row-label">Pts</td>${d.pts}
+            <td class="subtotal pts-cell ${ptsCls(d.ptsTotal)}" id="sub-p-${round}-${playerId}-tot">${ptsLbl(d.ptsTotal)}</td></tr>
+        </tbody>
+      </table>`;
+  } else {
+    // Saturday: front 9 + back 9
+    const f = buildHoles(FRONT);
+    const b = buildHoles(BACK);
+    const totS = f.strokesTotal + b.strokesTotal;
+    const totP = f.ptsTotal + b.ptsTotal;
+    const frontPar = FRONT.reduce((s,h)=>s+PAR[h-1],0);
+    const backPar  = BACK.reduce((s,h)=>s+PAR[h-1],0);
+
+    tableHTML = `
+      <table class="scorecard">
+        <thead><tr>
+          <th class="row-label"></th>
+          ${FRONT.map(h=>`<th>${h}</th>`).join('')}
           <th class="subtotal">OUT</th>
-          ${back.map(h=>`<th>${h}</th>`).join('')}
+          ${BACK.map(h=>`<th>${h}</th>`).join('')}
           <th class="subtotal">IN</th>
           <th class="subtotal">TOT</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="row-label">Par</td>
-          ${parRow(front)}
-          <td class="subtotal">${frontPar}</td>
-          ${parRow(back)}
-          <td class="subtotal">${backPar}</td>
-          <td class="subtotal">${frontPar+backPar}</td>
-        </tr>
-        <tr>
-          <td class="row-label">HCP+</td>
-          ${hcpRow(front)}
-          <td class="subtotal">—</td>
-          ${hcpRow(back)}
-          <td class="subtotal">—</td>
-          <td class="subtotal">—</td>
-        </tr>
-        <tr>
-          <td class="row-label">Score</td>
-          ${f.cells}
-          <td class="subtotal" id="sub-strokes-front-${playerId}">${f.strokesTotal || '—'}</td>
-          ${b.cells}
-          <td class="subtotal" id="sub-strokes-back-${playerId}">${b.strokesTotal || '—'}</td>
-          <td class="subtotal" id="sub-strokes-tot-${playerId}">${f.strokesTotal + b.strokesTotal || '—'}</td>
-        </tr>
-        <tr>
-          <td class="row-label">Pts</td>
-          ${ptsRow(front)}
-          <td class="subtotal pts-cell ${ptsClass(f.ptsTotal)}" id="sub-pts-front-${playerId}">${ptsLabel(f.ptsTotal)}</td>
-          ${ptsRow(back)}
-          <td class="subtotal pts-cell ${ptsClass(b.ptsTotal)}" id="sub-pts-back-${playerId}">${ptsLabel(b.ptsTotal)}</td>
-          <td class="subtotal pts-cell ${ptsClass(f.ptsTotal+b.ptsTotal)}" id="sub-pts-tot-${playerId}">${ptsLabel(f.ptsTotal+b.ptsTotal)}</td>
-        </tr>
-      </tbody>
-    </table>
-  `;
-
-  document.getElementById('scorecard-content').innerHTML = html;
-}
-
-function updatePending(playerId, hole, value) {
-  if (!pendingScores[playerId]) pendingScores[playerId] = {};
-  pendingScores[playerId][hole] = value ? parseInt(value) : null;
-}
-
-function liveUpdateRow(playerId, hole, value) {
-  updatePending(playerId, hole);
-  // update pts cell live
-  const player = appData.players.find(p => p.id === playerId);
-  const par = COURSE.par[hole-1];
-  const hcpStrokes = getHcpStrokes(player.handicap, COURSE.handicap[hole-1]);
-  const adjPar = par + hcpStrokes;
-  const strokes = value ? parseInt(value) : null;
-  const pts = strokes ? calcPoints(strokes, adjPar) : null;
-  const cell = document.getElementById(`pts-${playerId}-${hole}`);
-  if (cell) {
-    cell.className = `pts-cell ${ptsClass(pts)}`;
-    cell.textContent = ptsLabel(pts);
-  }
-  // update subtotals
-  updateSubtotals(playerId);
-}
-
-function updateSubtotals(playerId) {
-  const player = appData.players.find(p => p.id === playerId);
-  const scores = { ...(appData.scores[playerId] || {}), ...(pendingScores[playerId] || {}) };
-
-  let frontPts=0, backPts=0, frontStrokes=0, backStrokes=0;
-  for (let h=1; h<=18; h++) {
-    const strokes = scores[h];
-    if (!strokes) continue;
-    const par = COURSE.par[h-1];
-    const hcpS = getHcpStrokes(player.handicap, COURSE.handicap[h-1]);
-    const pts = calcPoints(parseInt(strokes), par+hcpS);
-    if (h<=9) { frontPts+=pts; frontStrokes+=parseInt(strokes); }
-    else       { backPts+=pts;  backStrokes+=parseInt(strokes); }
+        </tr></thead>
+        <tbody>
+          <tr><td class="row-label">Par</td>${f.par}<td class="subtotal">${frontPar}</td>${b.par}<td class="subtotal">${backPar}</td><td class="subtotal">${frontPar+backPar}</td></tr>
+          <tr><td class="row-label">HCP+</td>${f.hcp}<td class="subtotal">—</td>${b.hcp}<td class="subtotal">—</td><td class="subtotal">—</td></tr>
+          <tr><td class="row-label">Score</td>${f.stroke}
+            <td class="subtotal" id="sub-s-${round}-${playerId}-f">${f.strokesTotal||'—'}</td>
+            ${b.stroke}
+            <td class="subtotal" id="sub-s-${round}-${playerId}-b">${b.strokesTotal||'—'}</td>
+            <td class="subtotal" id="sub-s-${round}-${playerId}-tot">${totS||'—'}</td></tr>
+          <tr><td class="row-label">Pts</td>${f.pts}
+            <td class="subtotal pts-cell ${ptsCls(f.ptsTotal)}" id="sub-p-${round}-${playerId}-f">${ptsLbl(f.ptsTotal)}</td>
+            ${b.pts}
+            <td class="subtotal pts-cell ${ptsCls(b.ptsTotal)}" id="sub-p-${round}-${playerId}-b">${ptsLbl(b.ptsTotal)}</td>
+            <td class="subtotal pts-cell ${ptsCls(totP)}" id="sub-p-${round}-${playerId}-tot">${ptsLbl(totP)}</td></tr>
+        </tbody>
+      </table>`;
   }
 
-  const setCell = (id, val, isPts) => {
+  const infoBar = `<div style="margin-bottom:0.7rem;font-size:0.9rem;color:var(--muted)">
+    <strong style="color:var(--cream)">${player.name}</strong>
+    &nbsp;·&nbsp; HCP: <strong style="color:${accent}">${player.handicap ?? 'N/A'}</strong>
+    &nbsp;·&nbsp; ${player.eligible ? '<span style="color:#6FCF97">Cup Eligible 👑</span>' : '<span style="color:var(--rust)">Newbie</span>'}
+  </div>`;
+
+  document.getElementById(containerId).innerHTML = infoBar + tableHTML;
+}
+
+function updatePending(round, playerId, hole, value) {
+  if (!pending[round][playerId]) pending[round][playerId] = {};
+  pending[round][playerId][hole] = value ? parseInt(value) : null;
+}
+
+function liveUpdate(round, playerId, hole, value) {
+  updatePending(round, playerId, hole, value);
+  const player = appData.players.find(p => p.id === playerId);
+  const par  = PAR[hole-1];
+  const hcpS = hcpStrokes(player.handicap, HCP_ALLOC[hole-1]);
+  const pts  = value ? calcPts(parseInt(value), par + hcpS) : null;
+  const cell = document.getElementById(`pts-${round}-${playerId}-${hole}`);
+  if (cell) { cell.className = `pts-cell ${ptsCls(pts)}`; cell.textContent = ptsLbl(pts); }
+  updateSubtotals(round, playerId);
+}
+
+function updateSubtotals(round, playerId) {
+  const player = appData.players.find(p => p.id === playerId);
+  const saved  = appData.scores[round][playerId] || {};
+  const pend   = pending[round][playerId] || {};
+  const scores = { ...saved, ...pend };
+
+  let fP=0, bP=0, fS=0, bS=0;
+  SATURDAY_HOLES.forEach(h => {
+    const s = scores[h]; if (!s) return;
+    const adj = PAR[h-1] + hcpStrokes(player.handicap, HCP_ALLOC[h-1]);
+    const pts = calcPts(parseInt(s), adj);
+    if (h <= 9) { fP += pts; fS += parseInt(s); }
+    else         { bP += pts; bS += parseInt(s); }
+  });
+
+  const isFri = round === 'friday';
+  const set = (id, val, isPts) => {
     const el = document.getElementById(id);
     if (!el) return;
-    if (isPts) {
-      el.className = `subtotal pts-cell ${ptsClass(val)}`;
-      el.textContent = ptsLabel(val);
-    } else {
-      el.textContent = val || '—';
-    }
+    if (isPts) { el.className = `subtotal pts-cell ${ptsCls(val)}`; el.textContent = ptsLbl(val); }
+    else el.textContent = val || '—';
   };
 
-  setCell(`sub-pts-front-${playerId}`, frontPts, true);
-  setCell(`sub-pts-back-${playerId}`,  backPts,  true);
-  setCell(`sub-pts-tot-${playerId}`,   frontPts+backPts, true);
-  setCell(`sub-strokes-front-${playerId}`, frontStrokes, false);
-  setCell(`sub-strokes-back-${playerId}`,  backStrokes,  false);
-  setCell(`sub-strokes-tot-${playerId}`,   frontStrokes+backStrokes, false);
+  if (isFri) {
+    let totP=0, totS=0;
+    FRIDAY_HOLES.forEach(h => {
+      const s = scores[h]; if (!s) return;
+      const adj = PAR[h-1] + hcpStrokes(player.handicap, HCP_ALLOC[h-1]);
+      totP += calcPts(parseInt(s), adj); totS += parseInt(s);
+    });
+    set(`sub-p-${round}-${playerId}-tot`, totP, true);
+    set(`sub-s-${round}-${playerId}-tot`, totS, false);
+  } else {
+    set(`sub-p-${round}-${playerId}-f`,   fP, true);
+    set(`sub-p-${round}-${playerId}-b`,   bP, true);
+    set(`sub-p-${round}-${playerId}-tot`, fP+bP, true);
+    set(`sub-s-${round}-${playerId}-f`,   fS, false);
+    set(`sub-s-${round}-${playerId}-b`,   bS, false);
+    set(`sub-s-${round}-${playerId}-tot`, fS+bS, false);
+  }
 }
 
-async function saveScores() {
-  const status = document.getElementById('save-status');
-  status.textContent = 'Saving...';
+async function saveScores(round) {
+  const statusId = round === 'friday' ? 'fri-save-status' : 'sat-save-status';
+  document.getElementById(statusId).textContent = 'Saving...';
 
   const saves = [];
-  for (const [playerId, holes] of Object.entries(pendingScores)) {
+  const roundPending = pending[round] || {};
+  for (const [playerId, holes] of Object.entries(roundPending)) {
     for (const [hole, strokes] of Object.entries(holes)) {
-      if (strokes !== null && strokes > 0) {
-        saves.push(fetch('/api/score', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ playerId, hole: parseInt(hole), strokes })
-        }));
-      }
+      saves.push(fetch('/api/score', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ playerId, round, hole: parseInt(hole), strokes: strokes || null })
+      }));
     }
   }
 
   await Promise.all(saves);
-  pendingScores = {};
+  pending[round] = {};
   await fetchData();
-  status.textContent = '✓ Saved!';
-  toast('Scores saved! 🏌️');
-  setTimeout(() => status.textContent = '', 3000);
+  const label = round === 'friday' ? '🌙 Friday' : '☀️ Saturday';
+  document.getElementById(statusId).textContent = '✓ Saved!';
+  setTimeout(() => document.getElementById(statusId).textContent = '', 3000);
+  toast(`${label} scores saved!`);
+  renderScorecard(round, activePlayers[round]);
 }
 
-// ═══════════════════════════════════════════════════
-// COURSE REF TABLE
-// ═══════════════════════════════════════════════════
-function renderCourseRef() {
-  const front = [1,2,3,4,5,6,7,8,9];
-  const back  = [10,11,12,13,14,15,16,17,18];
-  const frontYards = front.reduce((s,h)=>s+COURSE.yards_gold[h-1],0);
-  const backYards  = back.reduce((s,h)=>s+COURSE.yards_gold[h-1],0);
-  const frontPar   = front.reduce((s,h)=>s+COURSE.par[h-1],0);
-  const backPar    = back.reduce((s,h)=>s+COURSE.par[h-1],0);
-
-  const rows = [
-    { label: 'Hole',  vals: [...front.map(h=>h), '—', ...back.map(h=>h), '—', '—'] },
-    { label: 'Yards', vals: [...front.map(h=>COURSE.yards_gold[h-1]), frontYards, ...back.map(h=>COURSE.yards_gold[h-1]), backYards, frontYards+backYards] },
-    { label: 'Par',   vals: [...front.map(h=>COURSE.par[h-1]), frontPar, ...back.map(h=>COURSE.par[h-1]), backPar, frontPar+backPar] },
-    { label: 'HCP',   vals: [...front.map(h=>COURSE.handicap[h-1]), '—', ...back.map(h=>COURSE.handicap[h-1]), '—', '—'] },
-  ];
-
-  document.getElementById('course-ref-body').innerHTML = rows.map(row =>
-    `<tr>
-      <td style="padding:0.4rem 0.5rem;font-family:'Bebas Neue',sans-serif;letter-spacing:0.08em;font-size:0.8rem;color:var(--gold);background:rgba(0,0,0,0.2)">${row.label}</td>
-      ${row.vals.map((v,i) =>
-        `<td style="padding:0.4rem 0.5rem;font-size:0.85rem;${(i===9||i===19||i===20)?'background:var(--green);color:var(--gold);font-family:Bebas Neue,sans-serif':''}">${v}</td>`
-      ).join('')}
-    </tr>`
-  ).join('');
-}
-
-// ═══════════════════════════════════════════════════
+// ══════════════════════════════════════════
 // SETTINGS
-// ═══════════════════════════════════════════════════
+// ══════════════════════════════════════════
 function renderSettings() {
-  const grid = document.getElementById('settings-grid');
-  grid.innerHTML = appData.players.map(player => `
+  document.getElementById('settings-grid').innerHTML = appData.players.map(p => `
     <div class="settings-card">
-      <h3>${player.name} ${player.eligible ? '👑' : '<span style="color:var(--rust);font-size:0.9rem">NEWBIE</span>'}</h3>
+      <h3>${p.name} ${p.eligible ? '👑' : '<span style="color:var(--rust);font-size:0.85rem">NEWBIE</span>'}</h3>
       <div class="field-row">
         <label>Wooga Handicap</label>
-        <input type="number" min="0" max="54" value="${player.handicap ?? ''}"
-          id="hcp-${player.id}" placeholder="—" />
-        <button class="update-btn" onclick="updatePlayer('${player.id}')">Set</button>
+        <input type="number" min="0" max="54" value="${p.handicap ?? ''}" id="hcp-${p.id}" placeholder="—" />
+        <button class="update-btn" onclick="updatePlayer('${p.id}')">Set</button>
       </div>
-      <div style="font-size:0.8rem;color:var(--muted);font-style:italic">
-        ${player.eligible ? '' : 'Assign handicap after round based on performance.'}
-        ${player.handicap ? `Stroke allocation active.` : 'No strokes currently applied.'}
+      <div style="font-size:0.78rem;color:var(--muted);font-style:italic">
+        ${p.handicap ? `${p.handicap} strokes allocated across 18 holes.` : 'No strokes applied yet.'}
+        ${!p.eligible ? ' Assign after round.' : ''}
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
-async function updatePlayer(playerId) {
-  const hcpEl = document.getElementById(`hcp-${playerId}`);
-  const handicap = hcpEl.value !== '' ? parseInt(hcpEl.value) : null;
-
-  await fetch(`/api/player/${playerId}`, {
+async function updatePlayer(id) {
+  const hcp = document.getElementById(`hcp-${id}`).value;
+  await fetch(`/api/player/${id}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ handicap })
+    body: JSON.stringify({ handicap: hcp !== '' ? parseInt(hcp) : null })
   });
-
   await fetchData();
   renderLeaderboard();
   renderSettings();
-  if (activePlayerId) renderScorecard(activePlayerId);
-  toast(`Updated ${appData.players.find(p=>p.id===playerId)?.name}!`);
+  if (activePlayers.friday)   renderScorecard('friday',   activePlayers.friday);
+  if (activePlayers.saturday) renderScorecard('saturday', activePlayers.saturday);
+  toast(`Updated ${appData.players.find(p=>p.id===id)?.name}!`);
 }
 
-async function resetScores() {
-  if (!confirm('Reset ALL scores? This cannot be undone!')) return;
-  await fetch('/api/scores', { method: 'DELETE' });
-  pendingScores = {};
+async function resetScores(which) {
+  const labels = { friday: 'Friday scores', saturday: 'Saturday scores', all: 'ALL scores' };
+  if (!confirm(`Reset ${labels[which]}? This cannot be undone!`)) return;
+  const param = which === 'all' ? '' : `?round=${which}`;
+  await fetch(`/api/scores${param}`, { method: 'DELETE' });
+  pending = { friday: {}, saturday: {} };
   await fetchData();
   renderLeaderboard();
-  if (activePlayerId) renderScorecard(activePlayerId);
-  toast('All scores reset 🗑️');
+  if (activePlayers.friday)   renderScorecard('friday',   activePlayers.friday);
+  if (activePlayers.saturday) renderScorecard('saturday', activePlayers.saturday);
+  toast(`${labels[which]} reset 🗑️`);
 }
 
-// ═══════════════════════════════════════════════════
+// ══════════════════════════════════════════
 // TABS
-// ═══════════════════════════════════════════════════
+// ══════════════════════════════════════════
 function showTab(id) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   document.querySelector(`nav button[onclick="showTab('${id}')"]`).classList.add('active');
-
-  if (id === 'leaderboard') {
-    fetchData().then(() => { renderLeaderboard(); });
-  }
+  if (id === 'leaderboard') { fetchData().then(renderLeaderboard); }
 }
 
-// ═══════════════════════════════════════════════════
+// ══════════════════════════════════════════
 // BOOT
-// ═══════════════════════════════════════════════════
+// ══════════════════════════════════════════
 loadAll();
 </script>
 </body>
