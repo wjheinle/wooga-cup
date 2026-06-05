@@ -38,8 +38,13 @@ function loadData() {
     return initial;
   }
   const data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
-  // migrate old format
-  if (!data.scores.friday) data.scores = { friday: {}, saturday: data.scores };
+  // migrate old single-round format: scores had player IDs at top level
+  if (!data.scores.friday && !data.scores.saturday) {
+    data.scores = { friday: {}, saturday: data.scores };
+    saveData(data);
+  }
+  if (!data.scores.friday)   data.scores.friday   = {};
+  if (!data.scores.saturday) data.scores.saturday = {};
   return data;
 }
 
