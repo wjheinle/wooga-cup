@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🏆 The Wooga Cup 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:    #C9A84C;
+      --gold2:   #F0D080;
+      --dark:    #0E1A0F;
+      --green:   #1B3A1F;
+      --green2:  #2A5930;
+      --cream:   #F5EED8;
+      --rust:    #8B3A1A;
+      --sky:     #4A7FA5;
+      --red:     #C0392B;
+      --text:    #F5EED8;
+      --muted:   #9DB49E;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Crimson Pro', Georgia, serif;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(ellipse at 20% 10%, rgba(42,89,48,0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 90%, rgba(139,58,26,0.2) 0%, transparent 50%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q15 0 30 30 Q45 60 60 30' stroke='%23ffffff06' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      position: relative;
+      border-bottom: 2px solid var(--gold);
+    }
+    .header-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--dark);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      padding: 0.25rem 1rem;
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-family: 'Rye', serif;
+      font-size: clamp(2rem, 8vw, 4.5rem);
+      color: var(--gold);
+      text-shadow: 0 2px 20px rgba(201,168,76,0.4), 3px 3px 0 rgba(0,0,0,0.5);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .subtitle {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(0.9rem, 3vw, 1.4rem);
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+    .ooga-chaka {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      color: var(--rust);
+      margin-top: 0.25rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:0.6} 50%{opacity:1} }
+
+    /* ─── NAV TABS ─── */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin: 1.5rem 1rem 0;
+      border-bottom: 2px solid var(--green2);
+      flex-wrap: wrap;
+    }
+    nav button {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      background: none;
+      border: none;
+      color: var(--muted);
+      padding: 0.6rem 1.4rem;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+    }
+    nav button:hover { color: var(--gold2); }
+    nav button.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    /* ─── MAIN CONTENT ─── */
+    main { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* ─── LEADERBOARD ─── */
+    .lb-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .lb-header h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+    }
+    .last-updated {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .leaderboard { width: 100%; border-collapse: collapse; }
+    .leaderboard thead tr {
+      background: var(--green);
+      border-bottom: 2px solid var(--gold);
+    }
+    .leaderboard th {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      padding: 0.6rem 0.8rem;
+      text-align: center;
+      color: var(--gold);
+    }
+    .leaderboard th:first-child { text-align: left; }
+    .leaderboard tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.15s;
+    }
+    .leaderboard tbody tr:hover { background: rgba(255,255,255,0.04); }
+    .leaderboard tbody tr.newbie { opacity: 0.7; }
+    .leaderboard td {
+      padding: 0.7rem 0.8rem;
+      text-align: center;
+      font-size: 1rem;
+    }
+    .leaderboard td:first-child { text-align: left; }
+
+    .rank { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: var(--muted); }
+    .rank.gold   { color: #FFD700; }
+    .rank.silver { color: #C0C0C0; }
+    .rank.bronze { color: #CD7F32; }
+
+    .player-name { font-weight: 600; font-size: 1.05rem; }
+    .player-name .alias {
+      display: block;
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .newbie-tag {
+      font-size: 0.65rem;
+      background: var(--rust);
+      color: white;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      letter-spacing: 0.1em;
+      font-family: 'Bebas Neue', sans-serif;
+      vertical-align: middle;
+      margin-left: 0.4rem;
+    }
+
+    .pts { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; }
+    .pts.positive { color: #6FCF97; }
+    .pts.negative { color: var(--red); }
+    .pts.zero     { color: var(--muted); }
+
+    .holes-played { font-size: 0.85rem; color: var(--muted); }
+    .thru { font-size: 0.8rem; color: var(--muted); font-style: italic; }
+
+    /* hole mini dots */
+    .hole-dots { display: flex; gap: 2px; flex-wrap: wrap; max-width: 180px; }
+    .hole-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--green2);
+      position: relative;
+    }
+    .hole-dot.eagle   { background: #F0D080; }
+    .hole-dot.birdie  { background: #6FCF97; }
+    .hole-dot.par     { background: var(--sky); }
+    .hole-dot.bogey   { background: var(--muted); }
+    .hole-dot.double  { background: var(--red); }
+
+    /* ─── SCORECARD ─── */
+    .player-select-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .player-btn {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      background: var(--green);
+      border: 1px solid var(--green2);
+      color: var(--text);
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+    .player-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .player-btn.active {
+      background: var(--gold);
+      color: var(--dark);
+      border-color: var(--gold);
+    }
+
+    .scorecard-wrap { overflow-x: auto; }
+    table.scorecard {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+    }
+    .scorecard th, .scorecard td {
+      padding: 0.45rem 0.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .scorecard thead tr:first-child {
+      background: var(--green);
+    }
+    .scorecard thead tr:first-child th {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      font-size: 0.85rem;
+    }
+    .scorecard .row-label {
+      text-align: left;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: rgba(0,0,0,0.2);
+      white-space: nowrap;
+    }
+    .scorecard .subtotal {
+      background: var(--green);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      color: var(--gold);
+    }
+    .scorecard input[type=number] {
+      width: 3rem;
+      background: var(--dark);
+      border: 1px solid var(--green2);
+      color: var(--text);
+      text-align: center;
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem;
+      padding: 0.2rem;
+      border-radius: 3px;
+      -moz-appearance: textfield;
+    }
+    .scorecard input[type=number]::-webkit-inner-spin-button { display: none; }
+    .scorecard input[type=number]:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: var(--green);
+    }
+    .scorecard .pts-cell {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+    }
+    .pts-cell.eagle-plus { color: #F0D080; }
+    .pts-cell.birdie-plus { color: #6FCF97; }
+    .pts-cell.par-plus { color: var(--sky); }
+    .pts-cell.bogey-zero { color: var(--muted); }
+    .pts-cell.double-minus { color: var(--red); }
+    .pts-cell.empty { color: rgba(255,255,255,0.15); }
+
+    .save-btn {
+      margin-top: 1rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.15em;
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      padding: 0.7rem 2rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .save-btn:hover { background: var(--gold2); transform: translateY(-1px); }
+    .save-status { margin-left: 1rem; font-style: italic; color: var(--muted); font-size: 0.9rem; }
+
+    /* ─── RULES / INFO ─── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .info-card {
+      background: var(--green);
+      border: 1px solid var(--green2);
+      border-left: 3px solid var(--gold);
+      padding: 1.2rem;
+      border-radius: 4px;
+    }
+    .info-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .points-table { width: 100%; font-size: 0.95rem; }
+    .points-table td { padding: 0.3rem 0; }
+    .points-table td:last-child {
+      text-align: right;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+    }
+    .pts-badge {
+      display: inline-block;
+      padding: 0.1rem 0.5rem;
+      border-radius: 3px;
+      font-size: 1rem;
+    }
+    .pts-badge.pos { background: rgba(111,207,151,0.2); color: #6FCF97; }
+    .pts-badge.neg { background: rgba(192,57,43,0.2); color: var(--red); }
+    .pts-badge.zero { background: rgba(74,127,165,0.2); color: var(--sky); }
+
+    /* ─── SETTINGS ─── */
+    .settings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .settings-card {
+      background: var(--green);
+      border: 1px solid var(--green2);
+      padding: 1.2rem;
+      border-radius: 4px;
+    }
+    .settings-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    .field-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .field-row label {
+      flex: 1;
+      font-size: 0.95rem;
+      color: var(--cream);
+    }
+    .field-row input[type=number],
+    .field-row select {
+      width: 80px;
+      background: var(--dark);
+      border: 1px solid var(--green2);
+      color: var(--text);
+      padding: 0.3rem 0.5rem;
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.95rem;
+      border-radius: 3px;
+      -moz-appearance: textfield;
+    }
+    .field-row input:focus, .field-row select:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .update-btn {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      background: var(--green2);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.3rem 0.8rem;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.15s;
+    }
+    .update-btn:hover { background: var(--gold); color: var(--dark); }
+
+    .danger-zone {
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 1px solid var(--rust);
+      border-radius: 4px;
+      background: rgba(139,58,26,0.1);
+    }
+    .danger-zone h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      color: var(--rust);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .reset-btn {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.1em;
+      background: var(--rust);
+      border: none;
+      color: white;
+      padding: 0.5rem 1.2rem;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .reset-btn:hover { opacity: 0.85; }
+
+    /* ─── HORSE SILHOUETTE ─── */
+    .horse-deco {
+      position: fixed;
+      bottom: 0;
+      right: 1rem;
+      opacity: 0.04;
+      pointer-events: none;
+      font-size: 10rem;
+      line-height: 1;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 600px) {
+      .leaderboard th, .leaderboard td { padding: 0.5rem 0.4rem; font-size: 0.85rem; }
+      .hole-dots { display: none; }
+      nav button { padding: 0.5rem 0.8rem; font-size: 0.95rem; }
+    }
+
+    /* ─── TOAST ─── */
+    #toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(3rem);
+      background: var(--gold);
+      color: var(--dark);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      padding: 0.6rem 1.8rem;
+      border-radius: 4px;
+      opacity: 0;
+      transition: all 0.3s;
+      z-index: 1000;
+      pointer-events: none;
+    }
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* loading state */
+    .loading-overlay {
+      text-align: center;
+      padding: 3rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+    }
+    .spinner {
+      display: inline-block;
+      width: 1.5rem; height: 1.5rem;
+      border: 2px solid var(--muted);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .eligible-crown { font-size: 0.7rem; margin-left: 0.2rem; }
+  </style>
+</head>
+<body>
+
+<div class="horse-deco">🐴</div>
+
+<header>
+  <div class="header-badge">Wild Horse Golf Club · Gothenburg, NE</div>
+  <h1>The Wooga Cup</h1>
+  <div class="subtitle">Modified Stableford Championship · 2025</div>
+  <div class="ooga-chaka">♪ OOGA CHAKA OOGA OOGA ♪</div>
+</header>
+
+<nav>
+  <button class="active" onclick="showTab('leaderboard')">🏆 Leaderboard</button>
+  <button onclick="showTab('scorecard')">⛳ Scorecard</button>
+  <button onclick="showTab('rules')">📋 Rules & Info</button>
+  <button onclick="showTab('settings')">⚙️ Settings</button>
+</nav>
+
+<main>
+
+  <!-- ─── LEADERBOARD ─── -->
+  <section id="leaderboard" class="section active">
+    <div class="lb-header">
+      <h2>🏆 Cup Standings</h2>
+      <div class="last-updated" id="last-updated">Loading...</div>
+    </div>
+    <div id="lb-content"><div class="loading-overlay"><span class="spinner"></span>Loading scores...</div></div>
+  </section>
+
+  <!-- ─── SCORECARD ─── -->
+  <section id="scorecard" class="section">
+    <div class="player-select-bar" id="player-btns"></div>
+    <div class="scorecard-wrap" id="scorecard-content"></div>
+    <div style="margin-top:1rem">
+      <button class="save-btn" onclick="saveScores()">💾 Save Scores</button>
+      <span class="save-status" id="save-status"></span>
+    </div>
+  </section>
+
+  <!-- ─── RULES ─── -->
+  <section id="rules" class="section">
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>🎯 Stableford Points</h3>
+        <table class="points-table">
+          <tr><td>Double Eagle (2 under)</td><td><span class="pts-badge pos">+16</span></td></tr>
+          <tr><td>Eagle (2 under)</td><td><span class="pts-badge pos">+9</span></td></tr>
+          <tr><td>Birdie (1 under)</td><td><span class="pts-badge pos">+4</span></td></tr>
+          <tr><td>Par</td><td><span class="pts-badge pos">+1</span></td></tr>
+          <tr><td>Bogey (1 over)</td><td><span class="pts-badge zero">0</span></td></tr>
+          <tr><td>Double Bogey or worse</td><td><span class="pts-badge neg">-1</span></td></tr>
+        </table>
+      </div>
+      <div class="info-card">
+        <h3>🐴 Course Info</h3>
+        <p style="font-size:0.95rem; line-height:1.6; color:var(--cream)">
+          Wild Horse Golf Club<br>
+          Gothenburg, Nebraska<br><br>
+          Par 72 · 18 Holes<br>
+          Gold Tees: 6848 yards<br><br>
+          Handicap strokes are applied per the USGA allocation based on Wooga Handicap index.
+        </p>
+      </div>
+      <div class="info-card">
+        <h3>🏆 Cup Eligibility</h3>
+        <p style="font-size:0.95rem; line-height:1.6; color:var(--cream)">
+          8 eligible players compete for the <strong>Wooga Cup</strong>.<br><br>
+          2 newbies (Ben & Jason) are <em>not eligible</em> for the Cup but scores are tracked and handicaps will be assigned based on their performance.
+        </p>
+      </div>
+      <div class="info-card">
+        <h3>📻 Theme Song</h3>
+        <p style="font-size:0.95rem; line-height:1.6; color:var(--cream)">
+          <strong style="color:var(--gold)">"Hooked on a Feeling"</strong><br>
+          by Blue Swede<br><br>
+          <em style="color:var(--muted)">♪ Ooga chaka ooga ooga<br>Ooga chaka ooga ooga ♪</em><br><br>
+          Cranked at the first tee by Joe, as is tradition.
+        </p>
+      </div>
+    </div>
+
+    <div class="info-card" style="margin-top:0">
+      <h3>📊 Hole-by-Hole Reference (Gold Tees)</h3>
+      <div style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;min-width:600px">
+          <thead>
+            <tr style="background:var(--green);border-bottom:1px solid var(--gold)">
+              <th style="padding:0.4rem;color:var(--gold);font-family:'Bebas Neue',sans-serif;letter-spacing:0.08em">Hole</th>
+              <th colspan="9" style="padding:0.4rem;color:var(--gold);font-family:'Bebas Neue',sans-serif">Front 9</th>
+              <th style="padding:0.4rem;color:var(--gold);font-family:'Bebas Neue',sans-serif">OUT</th>
+              <th colspan="9" style="padding:0.4rem;color:var(--gold);font-family:'Bebas Neue',sans-serif">Back 9</th>
+              <th style="padding:0.4rem;color:var(--gold);font-family:'Bebas Neue',sans-serif">IN</th>
+              <th style="padding:0.4rem;color:var(--gold);font-family:'Bebas Neue',sans-serif">TOT</th>
+            </tr>
+          </thead>
+          <tbody id="course-ref-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SETTINGS ─── -->
+  <section id="settings" class="section">
+    <div class="settings-grid" id="settings-grid"></div>
+    <div class="danger-zone" style="max-width:500px;margin-top:2rem">
+      <h3>⚠️ Danger Zone</h3>
+      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:0.8rem">Reset all entered scores. Cannot be undone.</p>
+      <button class="reset-btn" onclick="resetScores()">🗑️ Reset All Scores</button>
+    </div>
+  </section>
+
+</main>
+
+<div id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════════
+// COURSE DATA (Wild Horse Golf Club, Gold Tees)
+// ═══════════════════════════════════════════════════
+const COURSE = {
+  name: 'Wild Horse Golf Club',
+  par: [4,4,5,3,4,5,4,4,3, 4,3,4,4,5,4,4,5,4],
+  yards_gold: [363,431,537,171,367,548,364,451,155, 408,126,442,208,524,342,445,548,418],
+  handicap: [11,3,15,9,13,5,7,1,17, 10,18,4,6,16,12,2,14,8]
+};
+
+const STABLEFORD = {
+  doubleEagle: 16,
+  eagle: 9,
+  birdie: 4,
+  par: 1,
+  bogey: 0,
+  doublePlus: -1
+};
+
+// ═══════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════
+let appData = null;
+let activePlayerId = null;
+let pendingScores = {}; // playerId -> { hole: strokes }
+
+// ═══════════════════════════════════════════════════
+// UTILITY
+// ═══════════════════════════════════════════════════
+function calcPoints(strokes, par) {
+  if (strokes === null || strokes === undefined || strokes === 0) return null;
+  const diff = strokes - par;
+  if (diff <= -3) return STABLEFORD.doubleEagle;
+  if (diff === -2) return STABLEFORD.eagle;
+  if (diff === -1) return STABLEFORD.birdie;
+  if (diff === 0)  return STABLEFORD.par;
+  if (diff === 1)  return STABLEFORD.bogey;
+  return STABLEFORD.doublePlus;
+}
+
+function getHcpStrokes(handicap, holeHcp, totalHoles = 18) {
+  if (!handicap) return 0;
+  const hcp = Math.min(handicap, 36);
+  const full = Math.floor(hcp / totalHoles);
+  const extra = hcp % totalHoles;
+  return full + (holeHcp <= extra ? 1 : 0);
+}
+
+function ptsClass(pts) {
+  if (pts === null) return 'empty';
+  if (pts >= 9)  return 'eagle-plus';
+  if (pts >= 4)  return 'birdie-plus';
+  if (pts >= 1)  return 'par-plus';
+  if (pts === 0) return 'bogey-zero';
+  return 'double-minus';
+}
+
+function ptsLabel(pts) {
+  if (pts === null) return '–';
+  if (pts > 0) return '+' + pts;
+  return String(pts);
+}
+
+function rankMedal(i) {
+  if (i === 0) return '<span class="rank gold">🥇</span>';
+  if (i === 1) return '<span class="rank silver">🥈</span>';
+  if (i === 2) return '<span class="rank bronze">🥉</span>';
+  return `<span class="rank">${i+1}</span>`;
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ═══════════════════════════════════════════════════
+// DATA FETCHING
+// ═══════════════════════════════════════════════════
+async function fetchData() {
+  const res = await fetch('/api/data');
+  appData = await res.json();
+  // merge pending
+  return appData;
+}
+
+async function loadAll() {
+  await fetchData();
+  renderLeaderboard();
+  renderPlayerButtons();
+  renderScorecard(activePlayerId || appData.players[0].id);
+  renderSettings();
+  renderCourseRef();
+}
+
+// auto-refresh leaderboard every 30s
+setInterval(async () => {
+  if (document.getElementById('leaderboard').classList.contains('active')) {
+    await fetchData();
+    renderLeaderboard();
+  }
+}, 30000);
+
+// ═══════════════════════════════════════════════════
+// LEADERBOARD
+// ═══════════════════════════════════════════════════
+function computePlayerTotals(data) {
+  return data.players.map(player => {
+    const scores = data.scores[player.id] || {};
+    let totalPts = 0;
+    let holesPlayed = 0;
+    const holeResults = [];
+
+    for (let h = 1; h <= 18; h++) {
+      const strokes = scores[h];
+      if (strokes !== undefined && strokes > 0) {
+        const par = COURSE.par[h-1];
+        const hcpStrokes = getHcpStrokes(player.handicap, COURSE.handicap[h-1]);
+        const adjPar = par + hcpStrokes;
+        const pts = calcPoints(strokes, adjPar);
+        totalPts += pts;
+        holesPlayed++;
+        holeResults.push({ hole: h, strokes, par, hcpStrokes, pts });
+      } else {
+        holeResults.push({ hole: h, strokes: null, par: COURSE.par[h-1], pts: null });
+      }
+    }
+
+    return { ...player, totalPts, holesPlayed, holeResults };
+  });
+}
+
+function renderLeaderboard() {
+  const totals = computePlayerTotals(appData);
+  const eligible = totals.filter(p => p.eligible).sort((a,b) => b.totalPts - a.totalPts);
+  const newbies  = totals.filter(p => !p.eligible).sort((a,b) => b.totalPts - a.totalPts);
+
+  const now = new Date();
+  document.getElementById('last-updated').textContent = 'Updated ' + now.toLocaleTimeString();
+
+  let html = `
+    <table class="leaderboard">
+      <thead>
+        <tr>
+          <th style="width:2.5rem"></th>
+          <th style="text-align:left">Player</th>
+          <th>HCP</th>
+          <th>Pts</th>
+          <th>Thru</th>
+          <th class="hide-mobile">Holes</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  eligible.forEach((p, i) => {
+    const ptsCls = p.totalPts > 0 ? 'positive' : p.totalPts < 0 ? 'negative' : 'zero';
+    const thruText = p.holesPlayed === 18 ? 'F' : p.holesPlayed === 0 ? '—' : p.holesPlayed;
+    html += `
+      <tr>
+        <td>${rankMedal(i)}</td>
+        <td>
+          <span class="player-name">${p.name}<span class="eligible-crown">👑</span></span>
+        </td>
+        <td style="color:var(--muted);font-size:0.9rem">${p.handicap ?? '—'}</td>
+        <td><span class="pts ${ptsCls}">${p.totalPts > 0 ? '+' : ''}${p.totalPts}</span></td>
+        <td><span class="thru">${thruText}</span></td>
+        <td class="hide-mobile">
+          <div class="hole-dots">${p.holeResults.map(r => {
+            if (r.pts === null) return '<div class="hole-dot" title="H'+r.hole+': Not played"></div>';
+            const cls = r.pts >= 9 ? 'eagle' : r.pts >= 4 ? 'birdie' : r.pts >= 1 ? 'par' : r.pts === 0 ? 'bogey' : 'double';
+            return `<div class="hole-dot ${cls}" title="H${r.hole}: ${r.strokes} (${r.pts>0?'+':''}${r.pts}pts)"></div>`;
+          }).join('')}</div>
+        </td>
+      </tr>`;
+  });
+
+  if (newbies.length > 0) {
+    html += `<tr><td colspan="6" style="padding:0.8rem;font-family:'Bebas Neue',sans-serif;letter-spacing:0.1em;color:var(--rust);font-size:0.85rem;text-align:center;border-top:1px solid var(--rust)">NEWBIES (Not Cup Eligible)</td></tr>`;
+    newbies.forEach(p => {
+      const ptsCls = p.totalPts > 0 ? 'positive' : p.totalPts < 0 ? 'negative' : 'zero';
+      const thruText = p.holesPlayed === 18 ? 'F' : p.holesPlayed === 0 ? '—' : p.holesPlayed;
+      html += `
+        <tr class="newbie">
+          <td><span class="rank" style="color:var(--rust)">N</span></td>
+          <td>
+            <span class="player-name">${p.name}<span class="newbie-tag">NEWBIE</span></span>
+          </td>
+          <td style="color:var(--muted);font-size:0.9rem">${p.handicap ?? 'TBD'}</td>
+          <td><span class="pts ${ptsCls}">${p.totalPts > 0 ? '+' : ''}${p.totalPts}</span></td>
+          <td><span class="thru">${thruText}</span></td>
+          <td></td>
+        </tr>`;
+    });
+  }
+
+  html += '</tbody></table>';
+  document.getElementById('lb-content').innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════════
+// SCORECARD
+// ═══════════════════════════════════════════════════
+function renderPlayerButtons() {
+  const bar = document.getElementById('player-btns');
+  bar.innerHTML = appData.players.map(p =>
+    `<button class="player-btn ${activePlayerId === p.id ? 'active' : ''}"
+       onclick="renderScorecard('${p.id}')">${p.name.split(' ')[0]}${p.eligible ? '' : ' <small style="color:var(--rust)">(N)</small>'}</button>`
+  ).join('');
+}
+
+function renderScorecard(playerId) {
+  activePlayerId = playerId;
+  renderPlayerButtons();
+
+  const player = appData.players.find(p => p.id === playerId);
+  const scores = { ...(appData.scores[playerId] || {}), ...(pendingScores[playerId] || {}) };
+
+  const front = [1,2,3,4,5,6,7,8,9];
+  const back  = [10,11,12,13,14,15,16,17,18];
+
+  function buildHalf(holes) {
+    let ptsTotal = 0;
+    let strokesTotal = 0;
+    let cells = '';
+
+    holes.forEach(h => {
+      const par = COURSE.par[h-1];
+      const hcpStrokes = getHcpStrokes(player.handicap, COURSE.handicap[h-1]);
+      const strokes = scores[h] || '';
+      const adjPar = par + hcpStrokes;
+      const pts = strokes ? calcPoints(parseInt(strokes), adjPar) : null;
+      if (pts !== null) ptsTotal += pts;
+      if (strokes) strokesTotal += parseInt(strokes);
+
+      cells += `<td><input type="number" min="1" max="15" value="${strokes}"
+        onchange="updatePending('${playerId}', ${h}, this.value)"
+        oninput="liveUpdateRow('${playerId}', ${h}, this.value)"
+        id="inp-${playerId}-${h}" /></td>`;
+    });
+
+    return { cells, ptsTotal, strokesTotal };
+  }
+
+  const f = buildHalf(front);
+  const b = buildHalf(back);
+
+  function ptsRow(holes) {
+    return holes.map(h => {
+      const par = COURSE.par[h-1];
+      const hcpStrokes = getHcpStrokes(player.handicap, COURSE.handicap[h-1]);
+      const strokes = scores[h];
+      const adjPar = par + hcpStrokes;
+      const pts = strokes ? calcPoints(parseInt(strokes), adjPar) : null;
+      const cls = ptsClass(pts);
+      return `<td class="pts-cell ${cls}" id="pts-${playerId}-${h}">${ptsLabel(pts)}</td>`;
+    }).join('');
+  }
+
+  function parRow(holes) {
+    return holes.map(h => `<td style="color:var(--muted)">${COURSE.par[h-1]}</td>`).join('');
+  }
+
+  function hcpRow(holes) {
+    return holes.map(h => {
+      const s = getHcpStrokes(player.handicap, COURSE.handicap[h-1]);
+      return `<td style="color:var(--muted);font-size:0.8rem">${s > 0 ? '+'+s : '—'}</td>`;
+    }).join('');
+  }
+
+  const frontPar = front.reduce((s,h) => s + COURSE.par[h-1], 0);
+  const backPar  = back.reduce((s,h)  => s + COURSE.par[h-1], 0);
+
+  const html = `
+    <div style="margin-bottom:0.8rem;font-size:0.95rem;color:var(--muted)">
+      <strong style="color:var(--cream)">${player.name}</strong>
+      &nbsp;·&nbsp; Wooga HCP: <strong style="color:var(--gold)">${player.handicap ?? 'N/A'}</strong>
+      &nbsp;·&nbsp; <span style="color:var(--muted)">Cup: ${player.eligible ? '<span style="color:#6FCF97">Eligible 👑</span>' : '<span style="color:var(--rust)">Newbie</span>'}</span>
+    </div>
+    <table class="scorecard">
+      <thead>
+        <tr>
+          <th class="row-label"></th>
+          ${front.map(h=>`<th>${h}</th>`).join('')}
+          <th class="subtotal">OUT</th>
+          ${back.map(h=>`<th>${h}</th>`).join('')}
+          <th class="subtotal">IN</th>
+          <th class="subtotal">TOT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-label">Par</td>
+          ${parRow(front)}
+          <td class="subtotal">${frontPar}</td>
+          ${parRow(back)}
+          <td class="subtotal">${backPar}</td>
+          <td class="subtotal">${frontPar+backPar}</td>
+        </tr>
+        <tr>
+          <td class="row-label">HCP+</td>
+          ${hcpRow(front)}
+          <td class="subtotal">—</td>
+          ${hcpRow(back)}
+          <td class="subtotal">—</td>
+          <td class="subtotal">—</td>
+        </tr>
+        <tr>
+          <td class="row-label">Score</td>
+          ${f.cells}
+          <td class="subtotal" id="sub-strokes-front-${playerId}">${f.strokesTotal || '—'}</td>
+          ${b.cells}
+          <td class="subtotal" id="sub-strokes-back-${playerId}">${b.strokesTotal || '—'}</td>
+          <td class="subtotal" id="sub-strokes-tot-${playerId}">${f.strokesTotal + b.strokesTotal || '—'}</td>
+        </tr>
+        <tr>
+          <td class="row-label">Pts</td>
+          ${ptsRow(front)}
+          <td class="subtotal pts-cell ${ptsClass(f.ptsTotal)}" id="sub-pts-front-${playerId}">${ptsLabel(f.ptsTotal)}</td>
+          ${ptsRow(back)}
+          <td class="subtotal pts-cell ${ptsClass(b.ptsTotal)}" id="sub-pts-back-${playerId}">${ptsLabel(b.ptsTotal)}</td>
+          <td class="subtotal pts-cell ${ptsClass(f.ptsTotal+b.ptsTotal)}" id="sub-pts-tot-${playerId}">${ptsLabel(f.ptsTotal+b.ptsTotal)}</td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+
+  document.getElementById('scorecard-content').innerHTML = html;
+}
+
+function updatePending(playerId, hole, value) {
+  if (!pendingScores[playerId]) pendingScores[playerId] = {};
+  pendingScores[playerId][hole] = value ? parseInt(value) : null;
+}
+
+function liveUpdateRow(playerId, hole, value) {
+  updatePending(playerId, hole);
+  // update pts cell live
+  const player = appData.players.find(p => p.id === playerId);
+  const par = COURSE.par[hole-1];
+  const hcpStrokes = getHcpStrokes(player.handicap, COURSE.handicap[hole-1]);
+  const adjPar = par + hcpStrokes;
+  const strokes = value ? parseInt(value) : null;
+  const pts = strokes ? calcPoints(strokes, adjPar) : null;
+  const cell = document.getElementById(`pts-${playerId}-${hole}`);
+  if (cell) {
+    cell.className = `pts-cell ${ptsClass(pts)}`;
+    cell.textContent = ptsLabel(pts);
+  }
+  // update subtotals
+  updateSubtotals(playerId);
+}
+
+function updateSubtotals(playerId) {
+  const player = appData.players.find(p => p.id === playerId);
+  const scores = { ...(appData.scores[playerId] || {}), ...(pendingScores[playerId] || {}) };
+
+  let frontPts=0, backPts=0, frontStrokes=0, backStrokes=0;
+  for (let h=1; h<=18; h++) {
+    const strokes = scores[h];
+    if (!strokes) continue;
+    const par = COURSE.par[h-1];
+    const hcpS = getHcpStrokes(player.handicap, COURSE.handicap[h-1]);
+    const pts = calcPoints(parseInt(strokes), par+hcpS);
+    if (h<=9) { frontPts+=pts; frontStrokes+=parseInt(strokes); }
+    else       { backPts+=pts;  backStrokes+=parseInt(strokes); }
+  }
+
+  const setCell = (id, val, isPts) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (isPts) {
+      el.className = `subtotal pts-cell ${ptsClass(val)}`;
+      el.textContent = ptsLabel(val);
+    } else {
+      el.textContent = val || '—';
+    }
+  };
+
+  setCell(`sub-pts-front-${playerId}`, frontPts, true);
+  setCell(`sub-pts-back-${playerId}`,  backPts,  true);
+  setCell(`sub-pts-tot-${playerId}`,   frontPts+backPts, true);
+  setCell(`sub-strokes-front-${playerId}`, frontStrokes, false);
+  setCell(`sub-strokes-back-${playerId}`,  backStrokes,  false);
+  setCell(`sub-strokes-tot-${playerId}`,   frontStrokes+backStrokes, false);
+}
+
+async function saveScores() {
+  const status = document.getElementById('save-status');
+  status.textContent = 'Saving...';
+
+  const saves = [];
+  for (const [playerId, holes] of Object.entries(pendingScores)) {
+    for (const [hole, strokes] of Object.entries(holes)) {
+      if (strokes !== null && strokes > 0) {
+        saves.push(fetch('/api/score', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ playerId, hole: parseInt(hole), strokes })
+        }));
+      }
+    }
+  }
+
+  await Promise.all(saves);
+  pendingScores = {};
+  await fetchData();
+  status.textContent = '✓ Saved!';
+  toast('Scores saved! 🏌️');
+  setTimeout(() => status.textContent = '', 3000);
+}
+
+// ═══════════════════════════════════════════════════
+// COURSE REF TABLE
+// ═══════════════════════════════════════════════════
+function renderCourseRef() {
+  const front = [1,2,3,4,5,6,7,8,9];
+  const back  = [10,11,12,13,14,15,16,17,18];
+  const frontYards = front.reduce((s,h)=>s+COURSE.yards_gold[h-1],0);
+  const backYards  = back.reduce((s,h)=>s+COURSE.yards_gold[h-1],0);
+  const frontPar   = front.reduce((s,h)=>s+COURSE.par[h-1],0);
+  const backPar    = back.reduce((s,h)=>s+COURSE.par[h-1],0);
+
+  const rows = [
+    { label: 'Hole',  vals: [...front.map(h=>h), '—', ...back.map(h=>h), '—', '—'] },
+    { label: 'Yards', vals: [...front.map(h=>COURSE.yards_gold[h-1]), frontYards, ...back.map(h=>COURSE.yards_gold[h-1]), backYards, frontYards+backYards] },
+    { label: 'Par',   vals: [...front.map(h=>COURSE.par[h-1]), frontPar, ...back.map(h=>COURSE.par[h-1]), backPar, frontPar+backPar] },
+    { label: 'HCP',   vals: [...front.map(h=>COURSE.handicap[h-1]), '—', ...back.map(h=>COURSE.handicap[h-1]), '—', '—'] },
+  ];
+
+  document.getElementById('course-ref-body').innerHTML = rows.map(row =>
+    `<tr>
+      <td style="padding:0.4rem 0.5rem;font-family:'Bebas Neue',sans-serif;letter-spacing:0.08em;font-size:0.8rem;color:var(--gold);background:rgba(0,0,0,0.2)">${row.label}</td>
+      ${row.vals.map((v,i) =>
+        `<td style="padding:0.4rem 0.5rem;font-size:0.85rem;${(i===9||i===19||i===20)?'background:var(--green);color:var(--gold);font-family:Bebas Neue,sans-serif':''}">${v}</td>`
+      ).join('')}
+    </tr>`
+  ).join('');
+}
+
+// ═══════════════════════════════════════════════════
+// SETTINGS
+// ═══════════════════════════════════════════════════
+function renderSettings() {
+  const grid = document.getElementById('settings-grid');
+  grid.innerHTML = appData.players.map(player => `
+    <div class="settings-card">
+      <h3>${player.name} ${player.eligible ? '👑' : '<span style="color:var(--rust);font-size:0.9rem">NEWBIE</span>'}</h3>
+      <div class="field-row">
+        <label>Wooga Handicap</label>
+        <input type="number" min="0" max="54" value="${player.handicap ?? ''}"
+          id="hcp-${player.id}" placeholder="—" />
+        <button class="update-btn" onclick="updatePlayer('${player.id}')">Set</button>
+      </div>
+      <div style="font-size:0.8rem;color:var(--muted);font-style:italic">
+        ${player.eligible ? '' : 'Assign handicap after round based on performance.'}
+        ${player.handicap ? `Stroke allocation active.` : 'No strokes currently applied.'}
+      </div>
+    </div>
+  `).join('');
+}
+
+async function updatePlayer(playerId) {
+  const hcpEl = document.getElementById(`hcp-${playerId}`);
+  const handicap = hcpEl.value !== '' ? parseInt(hcpEl.value) : null;
+
+  await fetch(`/api/player/${playerId}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ handicap })
+  });
+
+  await fetchData();
+  renderLeaderboard();
+  renderSettings();
+  if (activePlayerId) renderScorecard(activePlayerId);
+  toast(`Updated ${appData.players.find(p=>p.id===playerId)?.name}!`);
+}
+
+async function resetScores() {
+  if (!confirm('Reset ALL scores? This cannot be undone!')) return;
+  await fetch('/api/scores', { method: 'DELETE' });
+  pendingScores = {};
+  await fetchData();
+  renderLeaderboard();
+  if (activePlayerId) renderScorecard(activePlayerId);
+  toast('All scores reset 🗑️');
+}
+
+// ═══════════════════════════════════════════════════
+// TABS
+// ═══════════════════════════════════════════════════
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelector(`nav button[onclick="showTab('${id}')"]`).classList.add('active');
+
+  if (id === 'leaderboard') {
+    fetchData().then(() => { renderLeaderboard(); });
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// BOOT
+// ═══════════════════════════════════════════════════
+loadAll();
+</script>
+</body>
+</html>
